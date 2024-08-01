@@ -82,14 +82,24 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "patientcreated",
 					"id": "cc60adca-f3d3-4ded-bc68-52dabf747cee",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
 					"request": {
-						"method": "GET",
-						"header": []
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"password\": \"Ice12\",\r\n  \"userLoginEmail\": \"cofguy123@gmail.com\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/login"
 					},
 					"response": []
 				}
