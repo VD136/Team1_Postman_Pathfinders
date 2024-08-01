@@ -1,0 +1,44 @@
+{
+	"info": {
+		"_postman_id": "c25bcbc2-d920-4577-9cfa-c17f2b40e3e1",
+		"name": "Team1_Postman Pathfinder",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User Login",
+			"item": [],
+			"id": "991a2140-bdf3-4da4-b223-a28a482cfbdc"
+		},
+		{
+			"name": "Dietician1",
+			"item": [],
+			"id": "55d295d1-abbb-4c92-aae2-34eebfc389fe"
+		},
+		{
+			"name": "Dietician2",
+			"item": [],
+			"id": "c57ae360-f181-4a48-ba9e-ab562a21db14"
+		},
+		{
+			"name": "Patient1",
+			"item": [],
+			"id": "62e1cdfa-badb-4a89-abfe-a391967c4d9f"
+		},
+		{
+			"name": "Patient2",
+			"item": [],
+			"id": "3cd322a6-fd23-46e7-bc84-437ce0e2de0c"
+		},
+		{
+			"name": "Patient3",
+			"item": [],
+			"id": "d48e74ae-7a71-43c8-94e0-d599053be64b"
+		},
+		{
+			"name": "Morbidity",
+			"item": [],
+			"id": "c95d7ed0-b623-48b9-ae35-cda3fd0afa82"
+		}
+	]
+}
