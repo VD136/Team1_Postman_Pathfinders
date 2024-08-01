@@ -1,0 +1,90 @@
+{
+	"info": {
+		"_postman_id": "3df1dd8b-06f4-46c3-9b94-8ffd0af93a10",
+		"name": "Team1_Postman Pathfinder",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User Login",
+			"item": [],
+			"id": "8e7d9f29-292b-42c4-9199-55128f4a69a7"
+		},
+		{
+			"name": "Dietician1",
+			"item": [
+				{
+					"name": "Dietician_login",
+					"id": "5c5c5e50-1af1-4a3b-9a2f-2f468e7c3fd5",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"password\": \"test\",\r\n  \"userLoginEmail\": \"Team1@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/login"
+					},
+					"response": []
+				},
+				{
+					"name": "Create_dietician",
+					"id": "76672df1-316d-4d9d-912a-cea6bd8e6273",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJUZWFtMUBnbWFpbC5jb20iLCJpYXQiOjE3MjI1MzE4MzAsImV4cCI6MTcyMjU2MDYzMH0.5qZE4LADe1WS64XcsrcDgBlJfQLOY4C3mc0M9t8cN_4R-H6jA1zHpBCiwTSdjkwoEtW4VvieW7-boWKqHCmwVQ"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ContactNumber\": \"4793062893\",\r\n  \"DateOfBirth\": \"2000-07-26T18:14:08.570Z\",\r\n  \"Education\": \"MBBS\",\r\n  \"Email\": \"remyap126@gmail.com\",\r\n  \"Firstname\": \"Rekha   \",\r\n  \"HospitalCity\": \"Rogers\",\r\n  \"HospitalName\": \"NWA HEalth\",\r\n  \"HospitalPincode\": \"727123\",\r\n  \"HospitalStreet\": \"Harbinson\",\r\n  \"Lastname\": \"M\"\r\n \r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/dietician"
+					},
+					"response": []
+				}
+			],
+			"id": "d35dae65-1495-4e50-abbf-01361208ec25"
+		},
+		{
+			"name": "Patient",
+			"item": [],
+			"id": "66b86c5c-9af3-4462-9607-aaafa4f91bfd"
+		},
+		{
+			"name": "Morbidity",
+			"item": [],
+			"id": "ae4e0ceb-60fa-48fc-987c-f6afdcbd1312"
+		},
+		{
+			"name": "Dietician2",
+			"item": [],
+			"id": "0dcfcd11-ab03-4fa5-8ded-d8292c977d08"
+		},
+		{
+			"name": "Patient2",
+			"item": [],
+			"id": "52174665-8540-4061-ac4a-b8ec505971ac"
+		}
+	]
+}
