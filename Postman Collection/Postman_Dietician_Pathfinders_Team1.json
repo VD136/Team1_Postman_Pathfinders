@@ -1,0 +1,74 @@
+{
+	"info": {
+		"_postman_id": "97cfa0cd-3870-451e-893a-e4d2429d3cb1",
+		"name": "Team1_Postman Pathfinder",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User Login",
+			"item": [],
+			"id": "f57c2646-2491-47de-ade0-3529363601f1"
+		},
+		{
+			"name": "Dietician1",
+			"item": [],
+			"id": "aa9455e0-9c65-48ae-ae7e-a5a6f992b919"
+		},
+		{
+			"name": "Dietician2",
+			"item": [],
+			"id": "ca72828a-8cc5-4d79-8a07-15b981d08450"
+		},
+		{
+			"name": "Patient1",
+			"item": [
+				{
+					"name": "New Request",
+					"id": "f0543418-00f3-4fe4-b779-44a46d9d89b5",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjb3V5MTIzQGdtYWlsLmNvbSIsImlhdCI6MTcyMjQ2OTEzMCwiZXhwIjoxNzIyNDk3OTMwfQ.na-iX3ytHuftreqZHJFuJUnpZke6_0EJoZqXJ2x81CUJ_vZzMbET-4-ROPP-1tU2zUfdp_yN3XRPF7n8BFhtyA"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "patientInfo",
+									"value": "{ \"FirstName\": \"lkm8\",\n\"LastName\": \"fss\",\n\"ContactNumber\": \"9083635660\",\n\"Email\": \"pl@gmail.com\",\n\"Allergy\": \"SOY\",\n\"FoodPreference\": \"vegan\",\n\"CuisineCategory\":\"indian\",\n\"DateOfBirth\": \"1980-02-14\"\n}\n",
+									"type": "text"
+								}
+							]
+						},
+						"url": "https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/patient"
+					},
+					"response": []
+				}
+			],
+			"id": "edfe55dd-6623-4286-9203-47e6a8b6a112"
+		},
+		{
+			"name": "Patient2",
+			"item": [],
+			"id": "4a5fd3d2-4f7a-49f1-b2e1-2f58de3f7f82"
+		},
+		{
+			"name": "Patient3",
+			"item": [],
+			"id": "b68509a3-dad2-43b1-93f5-c4876781dd9c"
+		},
+		{
+			"name": "Morbidity",
+			"item": [],
+			"id": "11acadb5-f8d5-47fc-8d8b-4e9af4b1b481"
+		}
+	]
+}
