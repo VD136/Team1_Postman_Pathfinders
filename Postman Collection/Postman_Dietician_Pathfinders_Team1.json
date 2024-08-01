@@ -23,14 +23,14 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "adminToken"
+								"token": "{{adminToken}}"
 							}
 						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ContactNumber\": \"8960498794\",\r\n  \"DateOfBirth\": \"2001-07-26\",\r\n  \"Education\": \"mba\",\r\n  \"Email\": \"cofguy123@gmail.com\",\r\n  \"Firstname\": \"sunpo\",\r\n  \"HospitalCity\": \"chicago\",\r\n  \"HospitalName\": \"loyola\",\r\n  \"HospitalPincode\": \"897898\",\r\n  \"HospitalStreet\": \"westside\",\r\n  \"Lastname\": \"castd\"\r\n \r\n}",
+							"raw": "{\r\n  \"ContactNumber\": \"8990498794\",\r\n  \"DateOfBirth\": \"2010-07-26\",\r\n  \"Education\": \"mba\",\r\n  \"Email\": \"cofguy123@gmail.com\",\r\n  \"Firstname\": \"sunpo\",\r\n  \"HospitalCity\": \"chicago\",\r\n  \"HospitalName\": \"loyola\",\r\n  \"HospitalPincode\": \"897898\",\r\n  \"HospitalStreet\": \"westside\",\r\n  \"Lastname\": \"castd\"\r\n \r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
