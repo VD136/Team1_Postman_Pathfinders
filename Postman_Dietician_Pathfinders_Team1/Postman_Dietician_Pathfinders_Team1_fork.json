@@ -7,7 +7,21 @@
 	"item": [
 		{
 			"name": "User Login",
-			"item": [],
+			"item": [
+				{
+					"name": "New Request",
+					"id": "d0d74baf-88b6-4db5-888d-9f785dfbb493",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "{{baseUrl}}/login"
+					},
+					"response": []
+				}
+			],
 			"id": "2d2cd492-ecf6-49ed-be91-0ac5e6aed810"
 		},
 		{
