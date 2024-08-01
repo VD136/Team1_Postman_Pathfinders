@@ -12,7 +12,20 @@
 		},
 		{
 			"name": "Dietician1",
-			"item": [],
+			"item": [
+				{
+					"name": "New Request",
+					"id": "7b3f12df-9478-4b49-ad41-c50b0781dbdf",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			],
 			"id": "aa9455e0-9c65-48ae-ae7e-a5a6f992b919"
 		},
 		{
