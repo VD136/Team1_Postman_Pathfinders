@@ -7,7 +7,33 @@
 	"item": [
 		{
 			"name": "User Login",
-			"item": [],
+			"item": [
+				{
+					"name": "patientcreated",
+					"id": "cc60adca-f3d3-4ded-bc68-52dabf747cee",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"password\": \"Sweet77\",\r\n  \"userLoginEmail\": \"cofguy123@gmail.com\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/login"
+					},
+					"response": []
+				}
+			],
 			"id": "f57c2646-2491-47de-ade0-3529363601f1"
 		},
 		{
@@ -78,28 +104,6 @@
 							]
 						},
 						"url": "https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/patient"
-					},
-					"response": []
-				},
-				{
-					"name": "patientcreated",
-					"id": "cc60adca-f3d3-4ded-bc68-52dabf747cee",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"password\": \"Carnation77\",\r\n  \"userLoginEmail\": \"cofguy123@gmail.com\"\r\n}\r\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/login"
 					},
 					"response": []
 				}
