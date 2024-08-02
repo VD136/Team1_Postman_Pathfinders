@@ -150,7 +150,7 @@
 							"formdata": [
 								{
 									"key": "patientInfo",
-									"value": "{ \"FirstName\": \"{{First_Name}}\",\n\"LastName\": \"{{LastName}}\",\n\"ContactNumber\": \"{{ContactNumber}}\",\n\"Email\": \"{{Email}}\",\n\"Allergy\": \"{{Allergy}}\",\n\"FoodPreference\": \"{{FoodPreference}}\",\n\"CuisineCategory\":\"{{CuisineCategory}}\",\n\"DateOfBirth\": \"{{DateOfBirth}}\"\n}\n",
+									"value": "{ \"FirstName\": \"lkm\",\n\"LastName\": \"fss\",\n\"ContactNumber\": \"9083635660\",\n\"Email\": \"pl@gmail.com\",\n\"Allergy\": \"SOY\",\n\"FoodPreference\": \"vegan\",\n\"CuisineCategory\":\"indian\",\n\"DateOfBirth\": \"1980-02-14\"\n}",
 									"type": "text"
 								},
 								{
