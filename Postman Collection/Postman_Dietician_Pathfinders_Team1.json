@@ -124,24 +124,6 @@
 			"name": "Morbidity",
 			"item": [],
 			"id": "11acadb5-f8d5-47fc-8d8b-4e9af4b1b481"
-		},
-		{
-			"name": "DieticianList",
-			"item": [
-				{
-					"name": "New Request",
-					"id": "91e9e143-51d2-474d-a32d-25d59642ac23",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": []
-					},
-					"response": []
-				}
-			],
-			"id": "29dbbe39-30e9-442c-afea-f89ab0465437"
 		}
 	]
 }
