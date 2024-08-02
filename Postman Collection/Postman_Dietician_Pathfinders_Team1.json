@@ -87,8 +87,8 @@
 								"id": "39cc3bf6-1442-4bda-ba7b-340092171b9a",
 								"exec": [
 									"pm.collectionVariables.set(\"patient_token\", \"token\");\r",
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
 									"});"
 								],
 								"type": "text/javascript",
@@ -114,7 +114,7 @@
 							"formdata": [
 								{
 									"key": "patientInfo",
-									"value": "{ \"FirstName\": \"lkm\",\n\"LastName\": \"fss\",\n\"ContactNumber\": \"9703035660\",\n\"Email\": \"pl@gmail.com\",\n\"Allergy\": \"SOY\",\n\"FoodPreference\": \"vegan\",\n\"CuisineCategory\":\"indian\",\n\"DateOfBirth\": \"1997-02-14\"\n}\n",
+									"value": "{ \"FirstName\": \"lkm\",\n\"LastName\": \"fss\",\n\"ContactNumber\": \"9972035660\",\n\"Email\": \"pl@gmail.com\",\n\"Allergy\": \"SOY\",\n\"FoodPreference\": \"vegan\",\n\"CuisineCategory\":\"indian\",\n\"DateOfBirth\": \"1997-09-13\"\n}\n",
 									"type": "text"
 								},
 								{
@@ -145,6 +145,12 @@
 			"name": "Morbidity",
 			"item": [],
 			"id": "11acadb5-f8d5-47fc-8d8b-4e9af4b1b481"
+		}
+	],
+	"variable": [
+		{
+			"key": "patient_token",
+			"value": ""
 		}
 	]
 }
