@@ -58,7 +58,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "\r\n{\r\n    \"password\": \"Goals88\",\r\n    \"userLoginEmail\": \"cofguy123@gmail.com\"\r\n}",
+							"raw": "\r\n{\r\n    \"password\": \"Unity99\",\r\n    \"userLoginEmail\": \"cofguy123@gmail.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -85,7 +85,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "{{adminToken}}"
+								"token": "{{admintoken}}"
 							}
 						},
 						"method": "POST",
