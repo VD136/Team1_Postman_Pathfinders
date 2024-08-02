@@ -104,7 +104,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjcGxpdXkxMjNAZ21haWwuY29tIiwiaWF0IjoxNzIyNTYwOTQ5LCJleHAiOjE3MjI1ODk3NDl9.PpsI9qKLbQaMTbm9JbGXrF52DAhkx_EWaGIwDMJeWkz_XcXPQ20ZkPW25C83QBAsP0IVqeAKElk0kxJAduQD3w"
+								"token": "{{patient_token}}"
 							}
 						},
 						"method": "POST",
@@ -114,7 +114,7 @@
 							"formdata": [
 								{
 									"key": "patientInfo",
-									"value": "{ \"FirstName\": \"lkm\",\n\"LastName\": \"fss\",\n\"ContactNumber\": \"8972035660\",\n\"Email\": \"pl@gmail.com\",\n\"Allergy\": \"SOY\",\n\"FoodPreference\": \"vegan\",\n\"CuisineCategory\":\"indian\",\n\"DateOfBirth\": \"1987-09-13\"\n}\n",
+									"value": "{ \"FirstName\": \"{{First_Name}}\",\n\"LastName\": \"{{LastName}}\",\n\"ContactNumber\": \"{{ContactNumber}}\",\n\"Email\": \"{{Email}}\",\n\"Allergy\": \"{{Allergy}}\",\n\"FoodPreference\": \"{{FoodPreference}}\",\n\"CuisineCategory\":\"{{CuisineCategory}}\",\n\"DateOfBirth\": \"{{DateOfBirth}}\"\n}\n",
 									"type": "text"
 								},
 								{
@@ -124,7 +124,7 @@
 								}
 							]
 						},
-						"url": "{{patient_token}}patient"
+						"url": "{{Baseurl}}patient"
 					},
 					"response": []
 				}
