@@ -98,13 +98,13 @@
 							"formdata": [
 								{
 									"key": "patientInfo",
-									"value": "{ \"FirstName\": \"lkm\",\n\"LastName\": \"fss\",\n\"ContactNumber\": \"9083035660\",\n\"Email\": \"pl@gmail.com\",\n\"Allergy\": \"SOY\",\n\"FoodPreference\": \"vegan\",\n\"CuisineCategory\":\"indian\",\n\"DateOfBirth\": \"1970-02-14\"\n}\n",
+									"value": "{ \"FirstName\": \"lkm\",\n\"LastName\": \"fss\",\n\"ContactNumber\": \"9743035660\",\n\"Email\": \"pl@gmail.com\",\n\"Allergy\": \"SOY\",\n\"FoodPreference\": \"vegan\",\n\"CuisineCategory\":\"indian\",\n\"DateOfBirth\": \"1967-02-14\"\n}\n",
 									"type": "text"
 								},
 								{
-									"key": "File",
+									"key": "file",
 									"type": "file",
-									"src": "postman-cloud:///1ef4f9b5-f513-4f20-bc07-047a3182198c"
+									"src": "postman-cloud:///1ef506ce-b281-4f60-8284-914afee28ec7"
 								}
 							]
 						},
