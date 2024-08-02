@@ -65,7 +65,7 @@
 								}
 							}
 						},
-						"url": "https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/login"
+						"url": "{{Baseurl}}/login"
 					},
 					"response": []
 				}
