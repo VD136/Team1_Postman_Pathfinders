@@ -16,7 +16,7 @@
 							"script": {
 								"id": "3aa92c16-cc04-44df-b642-60f9463e1404",
 								"exec": [
-									"pm.variables.set(\"requestVariable\", \"value\");\r",
+									"pm.variables.set(\"admintoken\", \"token\");\r",
 									""
 								],
 								"type": "text/javascript",
@@ -40,7 +40,7 @@
 								}
 							}
 						},
-						"url": "{{Baseurl}}/login"
+						"url": "{{Baseurl}}/patient"
 					},
 					"response": []
 				},
