@@ -124,7 +124,7 @@
 								}
 							]
 						},
-						"url": "{{Baseurl}}patient"
+						"url": "{{Baseurl}}/patient"
 					},
 					"response": []
 				}
@@ -151,6 +151,10 @@
 		{
 			"key": "patient_token",
 			"value": ""
+		},
+		{
+			"key": "Baseurl",
+			"value": "https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician"
 		}
 	]
 }
