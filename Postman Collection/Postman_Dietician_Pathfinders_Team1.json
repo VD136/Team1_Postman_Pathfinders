@@ -88,7 +88,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjb3V5MTIzQGdtYWlsLmNvbSIsImlhdCI6MTcyMjQ2OTEzMCwiZXhwIjoxNzIyNDk3OTMwfQ.na-iX3ytHuftreqZHJFuJUnpZke6_0EJoZqXJ2x81CUJ_vZzMbET-4-ROPP-1tU2zUfdp_yN3XRPF7n8BFhtyA"
+								"token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjcGxpdXkxMjNAZ21haWwuY29tIiwiaWF0IjoxNzIyNTYwOTQ5LCJleHAiOjE3MjI1ODk3NDl9.PpsI9qKLbQaMTbm9JbGXrF52DAhkx_EWaGIwDMJeWkz_XcXPQ20ZkPW25C83QBAsP0IVqeAKElk0kxJAduQD3w"
 							}
 						},
 						"method": "POST",
@@ -98,8 +98,13 @@
 							"formdata": [
 								{
 									"key": "patientInfo",
-									"value": "{ \"FirstName\": \"lkm8\",\n\"LastName\": \"fss\",\n\"ContactNumber\": \"9083635660\",\n\"Email\": \"pl@gmail.com\",\n\"Allergy\": \"SOY\",\n\"FoodPreference\": \"vegan\",\n\"CuisineCategory\":\"indian\",\n\"DateOfBirth\": \"1980-02-14\"\n}\n",
+									"value": "{ \"FirstName\": \"lkm\",\n\"LastName\": \"fss\",\n\"ContactNumber\": \"9083635660\",\n\"Email\": \"pl@gmail.com\",\n\"Allergy\": \"SOY\",\n\"FoodPreference\": \"vegan\",\n\"CuisineCategory\":\"indian\",\n\"DateOfBirth\": \"1980-02-14\"\n}\n",
 									"type": "text"
+								},
+								{
+									"key": "File",
+									"type": "file",
+									"src": "postman-cloud:///1ef4f9b5-f513-4f20-bc07-047a3182198c"
 								}
 							]
 						},
