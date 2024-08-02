@@ -80,6 +80,22 @@
 			"item": [
 				{
 					"name": "New Request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "39cc3bf6-1442-4bda-ba7b-340092171b9a",
+								"exec": [
+									"pm.collectionVariables.set(\"patient_token\", \"token\");\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "f0543418-00f3-4fe4-b779-44a46d9d89b5",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -98,7 +114,7 @@
 							"formdata": [
 								{
 									"key": "patientInfo",
-									"value": "{ \"FirstName\": \"lkm\",\n\"LastName\": \"fss\",\n\"ContactNumber\": \"9733035660\",\n\"Email\": \"pl@gmail.com\",\n\"Allergy\": \"SOY\",\n\"FoodPreference\": \"vegan\",\n\"CuisineCategory\":\"indian\",\n\"DateOfBirth\": \"1987-02-14\"\n}\n",
+									"value": "{ \"FirstName\": \"lkm\",\n\"LastName\": \"fss\",\n\"ContactNumber\": \"9703035660\",\n\"Email\": \"pl@gmail.com\",\n\"Allergy\": \"SOY\",\n\"FoodPreference\": \"vegan\",\n\"CuisineCategory\":\"indian\",\n\"DateOfBirth\": \"1997-02-14\"\n}\n",
 									"type": "text"
 								},
 								{
