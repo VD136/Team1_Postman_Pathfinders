@@ -9,6 +9,42 @@
 			"name": "User Login",
 			"item": [
 				{
+					"name": "useradmin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3aa92c16-cc04-44df-b642-60f9463e1404",
+								"exec": [
+									"pm.variables.set(\"requestVariable\", \"value\");\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "b69f8f6c-a51e-46f2-92cc-1db25511ef73",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"password\": \"test\",\r\n\"userLoginEmail\": \"Team1@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Baseurl}}/login"
+					},
+					"response": []
+				},
+				{
 					"name": "patientcreated",
 					"id": "cc60adca-f3d3-4ded-bc68-52dabf747cee",
 					"protocolProfileBehavior": {
@@ -30,18 +66,6 @@
 							}
 						},
 						"url": "https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/login"
-					},
-					"response": []
-				},
-				{
-					"name": "useradmin",
-					"id": "b69f8f6c-a51e-46f2-92cc-1db25511ef73",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": []
 					},
 					"response": []
 				}
