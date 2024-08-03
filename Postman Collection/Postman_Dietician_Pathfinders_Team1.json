@@ -135,7 +135,6 @@
 							"script": {
 								"id": "39cc3bf6-1442-4bda-ba7b-340092171b9a",
 								"exec": [
-									"pm.collectionVariables.set(\"patienttoken\", \"token\");\r",
 									"pm.test(\"Body matches string\", function () {\r",
 									"    pm.expect(pm.response.text()).to.include(\"colin\");\r",
 									"});\r",
