@@ -90,6 +90,34 @@
 						"url": "https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/dietician"
 					},
 					"response": []
+				},
+				{
+					"name": "PutRequest",
+					"id": "65150745-4862-4541-b33c-e644bd2b32fe",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJUZWFtMUBnbWFpbC5jb20iLCJpYXQiOjE3MjI2OTU1MjMsImV4cCI6MTcyMjcyNDMyM30.ZOdRgHpqho5TDqIcTM_pKKh4YMZePv5B56_j6JjFV7KWIC459Mf8n2taHMfF64LBldjo-PG2Z6d5YS7m6-_ygg"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ContactNumber\": \"4793062123\",\r\n  \"DateOfBirth\": \"1986-07-26T18:14:08.570Z\",\r\n  \"Education\": \"MBBS\",\r\n  \"Email\": \"remyap126@gmail.com\",\r\n  \"Firstname\": \"Amy  \",\r\n  \"HospitalCity\": \"Rogers\",\r\n  \"HospitalName\": \"Mercy Go HEalth\",\r\n  \"HospitalPincode\": \"727131\",\r\n  \"HospitalStreet\": \"Harbinson\",\r\n  \"Lastname\": \"Savor\"\r\n \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/dietician/429"
+					},
+					"response": []
 				}
 			],
 			"id": "d35dae65-1495-4e50-abbf-01361208ec25"
