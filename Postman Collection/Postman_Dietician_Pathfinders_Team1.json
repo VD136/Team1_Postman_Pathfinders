@@ -135,16 +135,13 @@
 							"script": {
 								"id": "39cc3bf6-1442-4bda-ba7b-340092171b9a",
 								"exec": [
-									"pm.test(\"Body matches string\", function () {\r",
-									"    pm.expect(pm.response.text()).to.include(\"colin\");\r",
-									"});\r",
 									"pm.test(\"Status code is 201\", function () {\r",
 									"    pm.response.to.have.status(201);\r",
 									"});\r",
 									"pm.test(\"Content-Type is present\", function () {\r",
 									"    pm.response.to.have.header(\"application/json\");\r",
 									"});\r",
-									"\r",
+									"const schema = \r",
 									"  {\"type\": \"object\",\r",
 									"  \"properties\": {\r",
 									"    \"patientId\": {\r",
@@ -267,7 +264,9 @@
 									"    \"LastVisitDate\"\r",
 									"  ]\r",
 									"}\r",
-									""
+									"pm.test(\"Verify  Schema\",function(){\r",
+									"    pm.response.to.have.jsonSchema(schema)\r",
+									"});"
 								],
 								"type": "text/javascript",
 								"packages": {}
@@ -292,7 +291,7 @@
 							"formdata": [
 								{
 									"key": "patientInfo",
-									"value": "{ \"FirstName\": \"colin\",\n\"LastName\": \"fss\",\n\"ContactNumber\": \"9342135660\",\n\"Email\": \"lkij90@gmail.com\",\n\"Allergy\": \"SOY\",\n\"FoodPreference\": \"vegan\",\n\"CuisineCategory\":\"indian\",\n\"DateOfBirth\": \"1937-02-14\"\n}",
+									"value": "{ \"FirstName\": \"colin\",\n\"LastName\": \"fss\",\n\"ContactNumber\": \"9242135660\",\n\"Email\": \"llkjj90@gmail.com\",\n\"Allergy\": \"SOY\",\n\"FoodPreference\": \"vegan\",\n\"CuisineCategory\":\"indian\",\n\"DateOfBirth\": \"1947-02-14\"\n}",
 									"type": "text"
 								},
 								{
