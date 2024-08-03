@@ -16,7 +16,6 @@
 							"script": {
 								"id": "3aa92c16-cc04-44df-b642-60f9463e1404",
 								"exec": [
-									"pm.variables.set(\"admintoken\", \"token\");\r",
 									""
 								],
 								"type": "text/javascript",
@@ -77,6 +76,20 @@
 			"item": [
 				{
 					"name": "New Request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fcfd3a5a-e962-47dc-9e3a-d02fc718eb75",
+								"exec": [
+									"pm.variables.set(\"admintoken\", \"token\");\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "7b3f12df-9478-4b49-ad41-c50b0781dbdf",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -92,7 +105,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ContactNumber\": \"8990328794\",\r\n  \"DateOfBirth\": \"2006-07-26\",\r\n  \"Education\": \"mba\",\r\n  \"Email\": \"cofguy123@gmail.com\",\r\n  \"Firstname\": \"sunpo\",\r\n  \"HospitalCity\": \"chicago\",\r\n  \"HospitalName\": \"loyola\",\r\n  \"HospitalPincode\": \"897898\",\r\n  \"HospitalStreet\": \"westside\",\r\n  \"Lastname\": \"castd\"\r\n \r\n}",
+							"raw": "{\r\n  \"ContactNumber\": \"8990318794\",\r\n  \"DateOfBirth\": \"2001-07-26\",\r\n  \"Education\": \"mba\",\r\n  \"Email\": \"kijh123@gmail.com\",\r\n  \"Firstname\": \"sunpo\",\r\n  \"HospitalCity\": \"chicago\",\r\n  \"HospitalName\": \"loyola\",\r\n  \"HospitalPincode\": \"897898\",\r\n  \"HospitalStreet\": \"westside\",\r\n  \"Lastname\": \"castd\"\r\n \r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
