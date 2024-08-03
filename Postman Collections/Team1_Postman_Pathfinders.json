@@ -62,6 +62,34 @@
 						"url": "https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/dietician"
 					},
 					"response": []
+				},
+				{
+					"name": "GetRequestDietician",
+					"id": "c8cf350c-942f-4bcf-b313-776a8daf609c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJUZWFtMUBnbWFpbC5jb20iLCJpYXQiOjE3MjI2OTUyNTgsImV4cCI6MTcyMjcyNDA1OH0.YV5GfOfquCSnMJnNYgBXelpdmLiuwVeXW7LKlQdF7labXYFznVYduIvsH8NbSNejYLWF865u-VHYhlr1acuqWg"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/dietician"
+					},
+					"response": []
 				}
 			],
 			"id": "d35dae65-1495-4e50-abbf-01361208ec25"
