@@ -139,7 +139,7 @@
 									"    pm.response.to.have.status(201);\r",
 									"});\r",
 									"pm.test(\"Content-Type is present\", function () {\r",
-									"    pm.response.to.have.header(\"application/json\");\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
 									"});\r",
 									"const schema = \r",
 									"  {\r",
@@ -234,7 +234,10 @@
 									"}\r",
 									"pm.test(\"Verify  Schema\",function(){\r",
 									"    pm.response.to.have.jsonSchema(schema)\r",
-									"});"
+									"});\r",
+									"\r",
+									"const response = pm.response.json();\r",
+									"pm.environment.set(\"patientId\",response.patientId);"
 								],
 								"type": "text/javascript",
 								"packages": {}
@@ -259,7 +262,7 @@
 							"formdata": [
 								{
 									"key": "patientInfo",
-									"value": "{ \"FirstName\": \"colin\",\n\"LastName\": \"fss\",\n\"ContactNumber\": \"8442135660\",\n\"Email\": \"lpkjnj90@gmail.com\",\n\"Allergy\": \"SOY\",\n\"FoodPreference\": \"vegan\",\n\"CuisineCategory\":\"indian\",\n\"DateOfBirth\": \"1967-02-14\"\n}",
+									"value": "{ \"FirstName\": \"colin\",\n\"LastName\": \"fss\",\n\"ContactNumber\": \"8476135660\",\n\"Email\": \"llpiujnj90@gmail.com\",\n\"Allergy\": \"SOY\",\n\"FoodPreference\": \"vegan\",\n\"CuisineCategory\":\"indian\",\n\"DateOfBirth\": \"1967-02-14\"\n}",
 									"type": "text"
 								},
 								{
