@@ -163,7 +163,7 @@
 							"formdata": [
 								{
 									"key": "patientInfo",
-									"value": "{ \"FirstName\": \"lkm\",\n\"LastName\": \"fss\",\n\"ContactNumber\": \"9183635660\",\n\"Email\": \"pl@gmail.com\",\n\"Allergy\": \"SOY\",\n\"FoodPreference\": \"vegan\",\n\"CuisineCategory\":\"indian\",\n\"DateOfBirth\": \"1970-02-14\"\n}",
+									"value": "{ \"FirstName\": \"lkm\",\n\"LastName\": \"fss\",\n\"ContactNumber\": \"9133635660\",\n\"Email\": \"pl@gmail.com\",\n\"Allergy\": \"SOY\",\n\"FoodPreference\": \"vegan\",\n\"CuisineCategory\":\"indian\",\n\"DateOfBirth\": \"1979-02-14\"\n}",
 									"type": "text"
 								},
 								{
