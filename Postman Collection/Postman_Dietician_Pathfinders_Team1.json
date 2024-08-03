@@ -57,7 +57,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "\r\n{\r\n    \"password\": \"Crane31\",\r\n    \"userLoginEmail\": \"kijh123@gmail.com\"\r\n}",
+							"raw": "\r\n{\r\n\"password\": \"Crane31\",\r\n\"userLoginEmail\": \"kijh123@gmail.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
