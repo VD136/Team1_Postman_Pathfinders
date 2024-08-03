@@ -57,7 +57,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "\r\n{\r\n    \"password\": \"Unity99\",\r\n    \"userLoginEmail\": \"cofguy123@gmail.com\"\r\n}",
+							"raw": "\r\n{\r\n    \"password\": \"Empower32\",\r\n    \"userLoginEmail\": \"kijh123@gmail.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -153,7 +153,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "{{patient_token}}"
+								"token": "{{patienttoken}}"
 							}
 						},
 						"method": "POST",
@@ -163,7 +163,7 @@
 							"formdata": [
 								{
 									"key": "patientInfo",
-									"value": "{ \"FirstName\": \"lkm\",\n\"LastName\": \"fss\",\n\"ContactNumber\": \"9083635660\",\n\"Email\": \"pl@gmail.com\",\n\"Allergy\": \"SOY\",\n\"FoodPreference\": \"vegan\",\n\"CuisineCategory\":\"indian\",\n\"DateOfBirth\": \"1980-02-14\"\n}",
+									"value": "{ \"FirstName\": \"lkm\",\n\"LastName\": \"fss\",\n\"ContactNumber\": \"9183635660\",\n\"Email\": \"pl@gmail.com\",\n\"Allergy\": \"SOY\",\n\"FoodPreference\": \"vegan\",\n\"CuisineCategory\":\"indian\",\n\"DateOfBirth\": \"1970-02-14\"\n}",
 									"type": "text"
 								},
 								{
