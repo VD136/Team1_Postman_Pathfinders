@@ -57,7 +57,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "\r\n{\r\n\"password\": \"Lead65\",\r\n\"userLoginEmail\": \"kijh123@gmail.com\"\r\n}",
+							"raw": "\r\n{\r\n\"password\": \"Ideal78\",\r\n\"userLoginEmail\": \"hfds23@gmail.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -170,7 +170,7 @@
 							"formdata": [
 								{
 									"key": "patientInfo",
-									"value": "{ \"FirstName\": \"colin\",\n\"LastName\": \"fss\",\n\"ContactNumber\": \"9345835660\",\n\"Email\": \"lplo90@gmail.com\",\n\"Allergy\": \"SOY\",\n\"FoodPreference\": \"vegan\",\n\"CuisineCategory\":\"indian\",\n\"DateOfBirth\": \"1947-02-14\"\n\"Email\": \"lp\",",
+									"value": "{ \"FirstName\": \"colin\",\n\"LastName\": \"fss\",\n\"ContactNumber\": \"9345835660\",\n\"Email\": \"lkij90@gmail.com\",\n\"Allergy\": \"SOY\",\n\"FoodPreference\": \"vegan\",\n\"CuisineCategory\":\"indian\",\n\"DateOfBirth\": \"1947-02-14\"\n}",
 									"type": "text"
 								},
 								{
