@@ -135,10 +135,15 @@
 							"script": {
 								"id": "39cc3bf6-1442-4bda-ba7b-340092171b9a",
 								"exec": [
-									"pm.collectionVariables.set(\"patient_token\", \"token\");\r",
+									"pm.collectionVariables.set(\"patienttoken\", \"token\");\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"string_you_want_to_search\");\r",
+									"});\r",
 									"pm.test(\"Status code is 201\", function () {\r",
 									"    pm.response.to.have.status(201);\r",
-									"});"
+									"});\r",
+									"\r",
+									""
 								],
 								"type": "text/javascript",
 								"packages": {}
@@ -163,7 +168,7 @@
 							"formdata": [
 								{
 									"key": "patientInfo",
-									"value": "{ \"FirstName\": \"lkm\",\n\"LastName\": \"fss\",\n\"ContactNumber\": \"9133635660\",\n\"Email\": \"pl@gmail.com\",\n\"Allergy\": \"SOY\",\n\"FoodPreference\": \"vegan\",\n\"CuisineCategory\":\"indian\",\n\"DateOfBirth\": \"1979-02-14\"\n}",
+									"value": "{ \"FirstName\": \"colin\",\n\"LastName\": \"fss\",\n\"ContactNumber\": \"9343635660\",\n\"Email\": \"pl@gmail.com\",\n\"Allergy\": \"SOY\",\n\"FoodPreference\": \"vegan\",\n\"CuisineCategory\":\"indian\",\n\"DateOfBirth\": \"1969-02-14\"\n}",
 									"type": "text"
 								},
 								{
