@@ -162,7 +162,82 @@
 		},
 		{
 			"name": "Patient1",
-			"item": [],
+			"item": [
+				{
+					"name": "Patient Morbidity",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0ab82775-f2fb-4554-935d-02fcd2e07dda",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.globals.set(\"file_id\", jsonData[0].fileId);",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "80bdacec-b033-4b79-b77a-642ef6f96d42",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{patientToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{url}}/patient/testReports/{{patient_id1}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Patient File",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0ab82775-f2fb-4554-935d-02fcd2e07dda",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.globals.set(\"file_id\", jsonData[0].fileId);",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "89da177d-977c-4b6c-bdc5-a32714103c86",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{patientToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{url}}/patient/testReports/{{patient_id1}}"
+					},
+					"response": []
+				}
+			],
 			"id": "31eb0c00-7bee-4779-8301-a5d3cdc78330"
 		},
 		{
