@@ -40,7 +40,7 @@
 								}
 							}
 						},
-						"url": "{{baseUrl}}/login"
+						"url": "{{BaseUrl}}/login"
 					},
 					"response": [
 						{
@@ -172,7 +172,117 @@
 		},
 		{
 			"name": "Patient3",
-			"item": [],
+			"item": [
+				{
+					"name": "Patient File",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0ab82775-f2fb-4554-935d-02fcd2e07dda",
+								"exec": [
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "89da177d-977c-4b6c-bdc5-a32714103c86",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{patientToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{url}}/patient/testReports/viewFile/{{file_id}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Patient Morbidity",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0ab82775-f2fb-4554-935d-02fcd2e07dda",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.globals.set(\"file_id\", jsonData[0].fileId);",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "80bdacec-b033-4b79-b77a-642ef6f96d42",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{patientToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{url}}/patient/testReports/{{patient_id1}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Patient",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0ab82775-f2fb-4554-935d-02fcd2e07dda",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.globals.set(\"file_id\", jsonData[0].fileId);",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "c70bf2b2-0b0e-4426-9a01-14394e44cdc5",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{dietician_Token}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "{{url}}/patient/{{patient_id1}}"
+					},
+					"response": []
+				}
+			],
 			"id": "09dd7542-b75e-49b4-8365-fc2e7b4149ac"
 		},
 		{
