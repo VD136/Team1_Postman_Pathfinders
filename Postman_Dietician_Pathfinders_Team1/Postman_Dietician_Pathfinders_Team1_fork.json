@@ -162,7 +162,52 @@
 		},
 		{
 			"name": "Patient1",
+			"item": [],
+			"id": "31eb0c00-7bee-4779-8301-a5d3cdc78330"
+		},
+		{
+			"name": "Patient2",
+			"item": [],
+			"id": "02789437-bcac-4e4c-a41d-ec7e1f4c8ec3"
+		},
+		{
+			"name": "Patient3",
 			"item": [
+				{
+					"name": "Patient File",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0ab82775-f2fb-4554-935d-02fcd2e07dda",
+								"exec": [
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "89da177d-977c-4b6c-bdc5-a32714103c86",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{patientToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{url}}/patient/testReports/viewFile/{{file_id}}"
+					},
+					"response": []
+				},
 				{
 					"name": "Patient Morbidity",
 					"event": [
@@ -201,7 +246,7 @@
 					"response": []
 				},
 				{
-					"name": "Patient File",
+					"name": "Patient",
 					"event": [
 						{
 							"listen": "test",
@@ -220,7 +265,7 @@
 							}
 						}
 					],
-					"id": "89da177d-977c-4b6c-bdc5-a32714103c86",
+					"id": "c70bf2b2-0b0e-4426-9a01-14394e44cdc5",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -228,26 +273,16 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "{{patientToken}}"
+								"token": "{{dietician_Token}}"
 							}
 						},
-						"method": "GET",
+						"method": "DELETE",
 						"header": [],
-						"url": "{{url}}/patient/testReports/{{patient_id1}}"
+						"url": "{{url}}/patient/{{patient_id1}}"
 					},
 					"response": []
 				}
 			],
-			"id": "31eb0c00-7bee-4779-8301-a5d3cdc78330"
-		},
-		{
-			"name": "Patient2",
-			"item": [],
-			"id": "02789437-bcac-4e4c-a41d-ec7e1f4c8ec3"
-		},
-		{
-			"name": "Patient3",
-			"item": [],
 			"id": "09dd7542-b75e-49b4-8365-fc2e7b4149ac"
 		},
 		{
