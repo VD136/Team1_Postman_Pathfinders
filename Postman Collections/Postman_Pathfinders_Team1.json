@@ -1045,12 +1045,12 @@
 							"mode": "formdata",
 							"formdata": []
 						},
-						"url": "https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/morbidity/{{morbidityName}}"
+						"url": "https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/morbidity/t3"
 					},
 					"response": []
 				},
 				{
-					"name": "morbidity_byTestname_noToken Copy",
+					"name": "morbidity_byTestname_noToken_invalidUrl",
 					"event": [
 						{
 							"listen": "test",
@@ -1110,7 +1110,7 @@
 							"mode": "formdata",
 							"formdata": []
 						},
-						"url": "https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/morbidity/{{morbidityName}}"
+						"url": "https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/morbidity/#"
 					},
 					"response": []
 				}
