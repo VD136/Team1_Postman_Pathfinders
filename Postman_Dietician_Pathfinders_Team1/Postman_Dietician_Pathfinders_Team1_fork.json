@@ -572,8 +572,7 @@
 							"script": {
 								"id": "1c1221ab-e44d-4e25-b83e-aae714fdb000",
 								"exec": [
-									"var adminToken = pm.response.json().token;",
-									"pm.globals.set(\"adminToken\", adminToken);"
+									""
 								],
 								"type": "text/javascript",
 								"packages": {}
@@ -717,8 +716,7 @@
 							"script": {
 								"id": "1c1221ab-e44d-4e25-b83e-aae714fdb000",
 								"exec": [
-									"var adminToken = pm.response.json().token;",
-									"pm.globals.set(\"adminToken\", adminToken);"
+									""
 								],
 								"type": "text/javascript",
 								"packages": {}
@@ -733,7 +731,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "{{adminToken}}"
+								"token": "{{dieticianToken}}"
 							}
 						},
 						"method": "GET",
@@ -862,8 +860,7 @@
 							"script": {
 								"id": "1c1221ab-e44d-4e25-b83e-aae714fdb000",
 								"exec": [
-									"var adminToken = pm.response.json().token;",
-									"pm.globals.set(\"adminToken\", adminToken);"
+									""
 								],
 								"type": "text/javascript",
 								"packages": {}
@@ -878,7 +875,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "{{adminToken}}"
+								"token": "{{patientToken}}"
 							}
 						},
 						"method": "GET",
@@ -1070,11 +1067,10 @@
 							"script": {
 								"id": "0ab82775-f2fb-4554-935d-02fcd2e07dda",
 								"exec": [
-									"var jsonData = pm.response.json();",
-									"pm.globals.set(\"file_id\", jsonData[0].fileId);",
 									"",
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
+									"",
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
 									"});"
 								],
 								"type": "text/javascript",
@@ -1143,8 +1139,8 @@
 								"id": "0ab82775-f2fb-4554-935d-02fcd2e07dda",
 								"exec": [
 									"",
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
 									"});"
 								],
 								"type": "text/javascript",
