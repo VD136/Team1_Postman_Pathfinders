@@ -678,7 +678,7 @@
 							"mode": "formdata",
 							"formdata": []
 						},
-						"url": "{{baseUrl}}/{{morbidityName}}"
+						"url": "https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/morbidity/{{morbidityName}}"
 					},
 					"response": []
 				},
@@ -780,7 +780,7 @@
 							"mode": "formdata",
 							"formdata": []
 						},
-						"url": "{{baseUrl}}/{{morbidityName}}"
+						"url": "https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/morbidity/{{morbidityName}}"
 					},
 					"response": []
 				},
@@ -848,7 +848,7 @@
 							"mode": "formdata",
 							"formdata": []
 						},
-						"url": "{{baseUrl}}/{{morbidityName}}"
+						"url": "https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/morbidity/{{morbidityName}}"
 					},
 					"response": []
 				},
@@ -916,7 +916,7 @@
 							"mode": "formdata",
 							"formdata": []
 						},
-						"url": "{{baseUrl}}/{{morbidityName}}"
+						"url": "https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/morbidity/{{morbidityName}}"
 					},
 					"response": []
 				},
@@ -981,7 +981,7 @@
 							"mode": "formdata",
 							"formdata": []
 						},
-						"url": "{{baseUrl}}/{{morbidityName}}"
+						"url": "https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/morbidity/{{morbidityName}}"
 					},
 					"response": []
 				}
