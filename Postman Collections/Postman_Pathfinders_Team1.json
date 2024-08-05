@@ -484,7 +484,7 @@
 					"response": []
 				},
 				{
-					"name": "all_morbidities_admin Copy",
+					"name": "all_morbidities_noToken",
 					"event": [
 						{
 							"listen": "test",
