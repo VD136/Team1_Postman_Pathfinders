@@ -771,7 +771,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "{{adToken}}"
+								"token": "{{dieticianToken}}"
 							}
 						},
 						"method": "GET",
@@ -907,7 +907,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "{{adToken}}"
+								"token": "{{dieticianToken}}"
 							}
 						},
 						"method": "GET",
@@ -973,10 +973,7 @@
 					},
 					"request": {
 						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{adToken}}"
-							}
+							"type": "noauth"
 						},
 						"method": "GET",
 						"header": [],
