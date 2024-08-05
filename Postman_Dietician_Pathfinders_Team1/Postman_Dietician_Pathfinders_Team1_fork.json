@@ -155,8 +155,9 @@
 							"script": {
 								"id": "1c1221ab-e44d-4e25-b83e-aae714fdb000",
 								"exec": [
-									"var adminToken = pm.response.json().token;",
-									"pm.globals.set(\"adminToken\", adminToken);"
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
 								],
 								"type": "text/javascript",
 								"packages": {}
@@ -294,8 +295,9 @@
 							"script": {
 								"id": "1c1221ab-e44d-4e25-b83e-aae714fdb000",
 								"exec": [
-									"var adminToken = pm.response.json().token;",
-									"pm.globals.set(\"adminToken\", adminToken);"
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
 								],
 								"type": "text/javascript",
 								"packages": {}
@@ -433,8 +435,9 @@
 							"script": {
 								"id": "1c1221ab-e44d-4e25-b83e-aae714fdb000",
 								"exec": [
-									"var adminToken = pm.response.json().token;",
-									"pm.globals.set(\"adminToken\", adminToken);"
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
 								],
 								"type": "text/javascript",
 								"packages": {}
