@@ -47,8 +47,8 @@
 								"id": "3bf1ca8f-c9ac-4ff2-a268-1756a13a7d45",
 								"exec": [
 									"var adminToken = pm.response.json().token;",
-									"pm.environment.set(\"adminToken\", adminToken);",
-									"console.log(pm.environment.get(\"adminToken\"));",
+									"pm.environment.set(\"adToken\", adminToken);",
+									"console.log(pm.environment.get(\"adToken\"));",
 									"",
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -201,12 +201,49 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "{{adminToken}}"
+								"token": "{{adToken}}"
 							}
 						},
 						"method": "GET",
 						"header": [],
 						"url": "https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/morbidity"
+					},
+					"response": []
+				},
+				{
+					"name": "dietician_login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "19e96b34-d7df-4a3c-b2f2-3e6b8b773b6f",
+								"exec": [
+									"var dieticianToken = pm.response.json().token;",
+									"pm.environment.set(\"dieticianToken\", dieticianToken);",
+									"pm.globals.set(\"dieticianToken\", dieticianToken);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "cfe9ad5a-a2a8-4b35-8cba-a118366163c9",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"password\": \"Arches45\",\n  \"userLoginEmail\": \"diet_1@ninja.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/login"
 					},
 					"response": []
 				},
@@ -270,42 +307,6 @@
 						"method": "GET",
 						"header": [],
 						"url": "https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/morbidity"
-					},
-					"response": []
-				},
-				{
-					"name": "dietician_login",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "19e96b34-d7df-4a3c-b2f2-3e6b8b773b6f",
-								"exec": [
-									"var dieticianToken = pm.response.json().token;",
-									"pm.globals.set(\"dieticianToken\", dieticianToken);"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"id": "cfe9ad5a-a2a8-4b35-8cba-a118366163c9",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"password\": \"Arches45\",\n  \"userLoginEmail\": \"diet_1@ninja.com\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/login"
 					},
 					"response": []
 				},
