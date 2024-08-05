@@ -172,7 +172,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\"password\": \"test\",\n\"userLoginEmail\": \"Team1@gmail.com\"\n}",
+							"raw": "{\n\"password\": \"test123\",\n\"userLoginEmail\": \"Team1@gmail.com\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -184,6 +184,284 @@
 					"response": [
 						{
 							"id": "ddce3c72-d588-48ed-85a8-9362ead646e1",
+							"name": "Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"password\": \"test\",\n\"userLoginEmail\": \"Team1@gmail.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/login"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Report-To",
+									"value": "{\"group\":\"heroku-nel\",\"max_age\":3600,\"endpoints\":[{\"url\":\"https://nel.heroku.com/reports?ts=1722545302&sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&s=gou%2BtZSAPKdP09glCwSOUW6m0if0tbFV2lT2i37586o%3D\"}]}"
+								},
+								{
+									"key": "Reporting-Endpoints",
+									"value": "heroku-nel=https://nel.heroku.com/reports?ts=1722545302&sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&s=gou%2BtZSAPKdP09glCwSOUW6m0if0tbFV2lT2i37586o%3D"
+								},
+								{
+									"key": "Nel",
+									"value": "{\"report_to\":\"heroku-nel\",\"max_age\":3600,\"success_fraction\":0.005,\"failure_fraction\":0.05,\"response_headers\":[\"Via\"]}"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000 ; includeSubDomains"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Aug 2024 20:48:22 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"token\": \"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJUZWFtMUBnbWFpbC5jb20iLCJpYXQiOjE3MjI1NDUzMDIsImV4cCI6MTcyMjU3NDEwMn0.rBXabixdKDk4xtDG9LFJhZOpULljawUtAB5hw0U1abiD2huI_kAcTt2qTij2nBAFVy5ICehjz0lx8en-m9Mgvg\",\n    \"type\": \"Bearer \",\n    \"userId\": 7043,\n    \"loginUserEmail\": \"Team1@gmail.com\",\n    \"roles\": [\n        \"ROLE_ADMIN\"\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "User Login Negative 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1c1221ab-e44d-4e25-b83e-aae714fdb000",
+								"exec": [
+									"var adminToken = pm.response.json().token;",
+									"pm.globals.set(\"adminToken\", adminToken);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "9dbc13f7-cf2a-4659-abd7-d2154cbcae91",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"password\": \"test\",\n\"userLoginEmail\": \"Team1@@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseUrl}}/login"
+					},
+					"response": [
+						{
+							"id": "7b0d5b53-bd3a-4603-ae8c-6b41e5969c59",
+							"name": "Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"password\": \"test\",\n\"userLoginEmail\": \"Team1@gmail.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/login"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Report-To",
+									"value": "{\"group\":\"heroku-nel\",\"max_age\":3600,\"endpoints\":[{\"url\":\"https://nel.heroku.com/reports?ts=1722545302&sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&s=gou%2BtZSAPKdP09glCwSOUW6m0if0tbFV2lT2i37586o%3D\"}]}"
+								},
+								{
+									"key": "Reporting-Endpoints",
+									"value": "heroku-nel=https://nel.heroku.com/reports?ts=1722545302&sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&s=gou%2BtZSAPKdP09glCwSOUW6m0if0tbFV2lT2i37586o%3D"
+								},
+								{
+									"key": "Nel",
+									"value": "{\"report_to\":\"heroku-nel\",\"max_age\":3600,\"success_fraction\":0.005,\"failure_fraction\":0.05,\"response_headers\":[\"Via\"]}"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000 ; includeSubDomains"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Aug 2024 20:48:22 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"token\": \"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJUZWFtMUBnbWFpbC5jb20iLCJpYXQiOjE3MjI1NDUzMDIsImV4cCI6MTcyMjU3NDEwMn0.rBXabixdKDk4xtDG9LFJhZOpULljawUtAB5hw0U1abiD2huI_kAcTt2qTij2nBAFVy5ICehjz0lx8en-m9Mgvg\",\n    \"type\": \"Bearer \",\n    \"userId\": 7043,\n    \"loginUserEmail\": \"Team1@gmail.com\",\n    \"roles\": [\n        \"ROLE_ADMIN\"\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "User Login Negative 3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1c1221ab-e44d-4e25-b83e-aae714fdb000",
+								"exec": [
+									"var adminToken = pm.response.json().token;",
+									"pm.globals.set(\"adminToken\", adminToken);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "13161ac4-bbc3-4893-8d9c-20dc4da1be4c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"password\": \"test\",\n\"userLoginEmail\": \"Team1@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseUrl}}/invalidlogin"
+					},
+					"response": [
+						{
+							"id": "1819faf5-bd79-4282-b2a7-52b9508fea42",
 							"name": "Login",
 							"originalRequest": {
 								"method": "POST",
@@ -430,6 +708,296 @@
 							"body": "{\n    \"token\": \"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJUZWFtMUBnbWFpbC5jb20iLCJpYXQiOjE3MjI1NDUzMDIsImV4cCI6MTcyMjU3NDEwMn0.rBXabixdKDk4xtDG9LFJhZOpULljawUtAB5hw0U1abiD2huI_kAcTt2qTij2nBAFVy5ICehjz0lx8en-m9Mgvg\",\n    \"type\": \"Bearer \",\n    \"userId\": 7043,\n    \"loginUserEmail\": \"Team1@gmail.com\",\n    \"roles\": [\n        \"ROLE_ADMIN\"\n    ]\n}"
 						}
 					]
+				},
+				{
+					"name": "Dietician Logout",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1c1221ab-e44d-4e25-b83e-aae714fdb000",
+								"exec": [
+									"var adminToken = pm.response.json().token;",
+									"pm.globals.set(\"adminToken\", adminToken);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "698c1b6f-759a-4d35-ae3a-060cb98fddd0",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{adminToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseUrl}}/logoutdietician"
+					},
+					"response": [
+						{
+							"id": "c1e5157e-6339-4bbd-a655-e0cfb1fbf2a9",
+							"name": "Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"password\": \"test\",\n\"userLoginEmail\": \"Team1@gmail.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/login"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Report-To",
+									"value": "{\"group\":\"heroku-nel\",\"max_age\":3600,\"endpoints\":[{\"url\":\"https://nel.heroku.com/reports?ts=1722545302&sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&s=gou%2BtZSAPKdP09glCwSOUW6m0if0tbFV2lT2i37586o%3D\"}]}"
+								},
+								{
+									"key": "Reporting-Endpoints",
+									"value": "heroku-nel=https://nel.heroku.com/reports?ts=1722545302&sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&s=gou%2BtZSAPKdP09glCwSOUW6m0if0tbFV2lT2i37586o%3D"
+								},
+								{
+									"key": "Nel",
+									"value": "{\"report_to\":\"heroku-nel\",\"max_age\":3600,\"success_fraction\":0.005,\"failure_fraction\":0.05,\"response_headers\":[\"Via\"]}"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000 ; includeSubDomains"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Aug 2024 20:48:22 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"token\": \"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJUZWFtMUBnbWFpbC5jb20iLCJpYXQiOjE3MjI1NDUzMDIsImV4cCI6MTcyMjU3NDEwMn0.rBXabixdKDk4xtDG9LFJhZOpULljawUtAB5hw0U1abiD2huI_kAcTt2qTij2nBAFVy5ICehjz0lx8en-m9Mgvg\",\n    \"type\": \"Bearer \",\n    \"userId\": 7043,\n    \"loginUserEmail\": \"Team1@gmail.com\",\n    \"roles\": [\n        \"ROLE_ADMIN\"\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Patient Logout",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1c1221ab-e44d-4e25-b83e-aae714fdb000",
+								"exec": [
+									"var adminToken = pm.response.json().token;",
+									"pm.globals.set(\"adminToken\", adminToken);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "a248369c-bded-4755-b128-5c3506a3f685",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{adminToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseUrl}}/logoutdietician"
+					},
+					"response": [
+						{
+							"id": "c35cbb56-8833-4949-9c30-3b1a97b75ad6",
+							"name": "Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"password\": \"test\",\n\"userLoginEmail\": \"Team1@gmail.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/login"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Report-To",
+									"value": "{\"group\":\"heroku-nel\",\"max_age\":3600,\"endpoints\":[{\"url\":\"https://nel.heroku.com/reports?ts=1722545302&sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&s=gou%2BtZSAPKdP09glCwSOUW6m0if0tbFV2lT2i37586o%3D\"}]}"
+								},
+								{
+									"key": "Reporting-Endpoints",
+									"value": "heroku-nel=https://nel.heroku.com/reports?ts=1722545302&sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&s=gou%2BtZSAPKdP09glCwSOUW6m0if0tbFV2lT2i37586o%3D"
+								},
+								{
+									"key": "Nel",
+									"value": "{\"report_to\":\"heroku-nel\",\"max_age\":3600,\"success_fraction\":0.005,\"failure_fraction\":0.05,\"response_headers\":[\"Via\"]}"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000 ; includeSubDomains"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Aug 2024 20:48:22 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"token\": \"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJUZWFtMUBnbWFpbC5jb20iLCJpYXQiOjE3MjI1NDUzMDIsImV4cCI6MTcyMjU3NDEwMn0.rBXabixdKDk4xtDG9LFJhZOpULljawUtAB5hw0U1abiD2huI_kAcTt2qTij2nBAFVy5ICehjz0lx8en-m9Mgvg\",\n    \"type\": \"Bearer \",\n    \"userId\": 7043,\n    \"loginUserEmail\": \"Team1@gmail.com\",\n    \"roles\": [\n        \"ROLE_ADMIN\"\n    ]\n}"
+						}
+					]
 				}
 			],
 			"id": "2d2cd492-ecf6-49ed-be91-0ac5e6aed810"
@@ -457,41 +1025,6 @@
 		{
 			"name": "Patient3",
 			"item": [
-				{
-					"name": "Patient File",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "0ab82775-f2fb-4554-935d-02fcd2e07dda",
-								"exec": [
-									"",
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"id": "89da177d-977c-4b6c-bdc5-a32714103c86",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{patientToken}}"
-							}
-						},
-						"method": "GET",
-						"header": [],
-						"url": "{{url}}/patient/testReports/viewFile/{{file_id}}"
-					},
-					"response": []
-				},
 				{
 					"name": "Patient Morbidity",
 					"event": [
@@ -530,6 +1063,113 @@
 					"response": []
 				},
 				{
+					"name": "Patient Morbidity Negative",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0ab82775-f2fb-4554-935d-02fcd2e07dda",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.globals.set(\"file_id\", jsonData[0].fileId);",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "857a838b-9f0e-4794-9534-0d4a5750c4ce",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{patientToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{url}}/patient/testReports/{{patient_id1}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Patient File",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0ab82775-f2fb-4554-935d-02fcd2e07dda",
+								"exec": [
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "89da177d-977c-4b6c-bdc5-a32714103c86",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{patientToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{url}}/patient/testReports/viewFile/{{file_id}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Patient File Negative",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0ab82775-f2fb-4554-935d-02fcd2e07dda",
+								"exec": [
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "0d0081e5-1248-4765-bc0c-b926550abf73",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{patientToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{url}}/patient/testReports/viewFile/{{file_id}}"
+					},
+					"response": []
+				},
+				{
 					"name": "Patient",
 					"event": [
 						{
@@ -550,6 +1190,43 @@
 						}
 					],
 					"id": "c70bf2b2-0b0e-4426-9a01-14394e44cdc5",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{dietician_Token}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "{{url}}/patient/{{patient_id1}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Patient Negative",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0ab82775-f2fb-4554-935d-02fcd2e07dda",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.globals.set(\"file_id\", jsonData[0].fileId);",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "24fe0189-453b-4dab-a709-055ed47c9108",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
