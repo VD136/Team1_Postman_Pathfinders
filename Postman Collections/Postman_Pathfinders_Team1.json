@@ -581,6 +581,68 @@
 					"response": []
 				},
 				{
+					"name": "all_morbidities_noToken_invalidUrl",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "30ae605c-8c9f-441f-81d5-47b442b5a545",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});",
+									"pm.test(\"Status code name has string\", function () {",
+									"    pm.response.to.have.status(\"Unauthorized\");",
+									"});",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"pm.test(\"Content-Type is application/json\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "0c488c52-b852-4350-b810-ccc92fd52443",
+								"exec": [
+									"/*const token = pm.globals.get(\"adminToken\");",
+									"console.log(pm.globals.get(\"adminToken\"))",
+									"console.log(token);",
+									"",
+									"if(token) {",
+									"    pm.request.headers.add({",
+									"        key: \"Authorization\",",
+									"        value: `Bearer ${token}`",
+									"    });",
+									"} else {",
+									"    console.error(\"admin token not found in global variables\")",
+									"}*/"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "fcae537d-13af-4423-84a1-8f15e0524cc6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": "https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/morbidity1"
+					},
+					"response": []
+				},
+				{
 					"name": "morbidity_byTestname_admin",
 					"event": [
 						{
@@ -970,6 +1032,71 @@
 						}
 					],
 					"id": "52cbd269-1d9d-49b5-950b-07ec58791017",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": "https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/morbidity/{{morbidityName}}"
+					},
+					"response": []
+				},
+				{
+					"name": "morbidity_byTestname_noToken Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8bfcca11-34bd-41a0-b319-f4229b5e3b28",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});",
+									"pm.test(\"Status code name has string\", function () {",
+									"    pm.response.to.have.status(\"Unauthorized\");",
+									"});",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"pm.test(\"Content-Type is application/json\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "284640f5-79ef-4807-b0ca-74f639c70447",
+								"exec": [
+									"/*console.log(\"Request Name: \", pm.info.requestName);",
+									"// Check if the admin request has been executed",
+									"if (!pm.environment.get(\"adminRequestExecuted\")) {",
+									"    // If not executed, set the next request to `admin` and exit",
+									"    console.log(\"Inside If\")",
+									"    pm.execution.setNextRequest('admin_login');",
+									"} else {",
+									"    // If already executed, proceed with the current request",
+									"     console.log(\"Inside else\")",
+									"     pm.execution.setNextRequest(null);",
+									"}*/"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "0017e94c-7f4b-43d1-893e-72efb15d874d",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
