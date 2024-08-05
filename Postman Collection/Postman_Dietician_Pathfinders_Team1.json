@@ -185,9 +185,9 @@
 									"});\r",
 									"pm.test(\"test name\", function () {\r",
 									"   var jsondata = pm.response.json();\r",
-									"   pm.globals.set(\"patient_id1\", jsondata.patientId);\r",
-									"    pm.globals.set(\"patientemail\", jsondata.Email);\r",
-									"    console.log(pm.globals.get(\"patientemail\", jsondata.Email));\r",
+									"   pm.environment.set(\"patient_id1\", jsondata.patientId);\r",
+									"    pm.environment.set(\"patientemail\", jsondata.Email);\r",
+									"    console.log(pm.environment.get(\"patientemail\", jsondata.Email));\r",
 									"});"
 								],
 								"type": "text/javascript",
@@ -203,7 +203,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "{{patienttoken}}"
+								"token": "{{dietician_Token}}"
 							}
 						},
 						"method": "POST",
@@ -213,7 +213,7 @@
 							"formdata": [
 								{
 									"key": "patientInfo",
-									"value": "{ \"FirstName\": \"jgfd\",\n\"LastName\": \"fss\",\n\"ContactNumber\": \"9546135660\",\n\"Email\": \"llkhgujnj90@gmail.com\",\n\"Allergy\": \"SOY\",\n\"FoodPreference\": \"vegan\",\n\"CuisineCategory\":\"indian\",\n\"DateOfBirth\": \"1987-09-20\"\n}",
+									"value": "{ \"FirstName\": \"jgfd\",\n\"LastName\": \"fss\",\n\"ContactNumber\": \"9548335660\",\n\"Email\": \"hgujnj90@gmail.com\",\n\"Allergy\": \"SOY\",\n\"FoodPreference\": \"vegan\",\n\"CuisineCategory\":\"indian\",\n\"DateOfBirth\": \"1987-09-20\"\n}",
 									"type": "text"
 								},
 								{
