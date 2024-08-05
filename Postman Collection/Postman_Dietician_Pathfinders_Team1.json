@@ -86,8 +86,19 @@
 							"script": {
 								"id": "fcfd3a5a-e962-47dc-9e3a-d02fc718eb75",
 								"exec": [
-									"pm.environment.set(\"adminToken\", \"adminToken\");\r",
-									"\r",
+									"pm.test(\"dietician id from the response\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    \r",
+									"   pm.environment.set(\"dietician_id1\", jsonData.id);\r",
+									"   console.log(pm.environment.get(\"dietician_id1\", jsonData.id));\r",
+									"   pm.environment.set(\"userLoginEmail\", jsonData.Email);\r",
+									"    console.log(pm.environment.get(\"userLoginEmail\", jsonData.Email));\r",
+									"   pm.environment.set(\"password\", jsonData.loginPassword);\r",
+									"   console.log(pm.environment.get(\"password\", jsonData.loginPassword));\r",
+									"});\r",
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
 									""
 								],
 								"type": "text/javascript",
@@ -110,7 +121,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ContactNumber\": \"8051318794\",\r\n  \"DateOfBirth\": \"2011-08-26\",\r\n  \"Education\": \"mba\",\r\n  \"Email\": \"hlks23@gmail.com\",\r\n  \"Firstname\": \"sunpo\",\r\n  \"HospitalCity\": \"chicago\",\r\n  \"HospitalName\": \"loyola\",\r\n  \"HospitalPincode\": \"897898\",\r\n  \"HospitalStreet\": \"westside\",\r\n  \"Lastname\": \"castd\"\r\n \r\n}",
+							"raw": "{\r\n  \"ContactNumber\": \"8051318794\",\r\n  \"DateOfBirth\": \"2011-05-26\",\r\n  \"Education\": \"mba\",\r\n  \"Email\": \"ks23@gmail.com\",\r\n  \"Firstname\": \"sunpo\",\r\n  \"HospitalCity\": \"chicago\",\r\n  \"HospitalName\": \"loyola\",\r\n  \"HospitalPincode\": \"897898\",\r\n  \"HospitalStreet\": \"westside\",\r\n  \"Lastname\": \"castd\"\r\n \r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
