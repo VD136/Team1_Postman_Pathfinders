@@ -78,7 +78,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "\r\n{\r\n\"password\":\"{{password}}\",\r\n\"userLoginEmail\":\"{{userLoginEmail}}\"\r\n}",
+							"raw": "\r\n{\r\n\"password\": \"Amuse98\",\r\n\"userLoginEmail\": \"ks23@gmail.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -108,10 +108,10 @@
 									"    \r",
 									"   pm.environment.set(\"dietician_id1\", jsonData.id);\r",
 									"   console.log(pm.environment.get(\"dietician_id1\", jsonData.id));\r",
-									"   pm.environment.set(\"userLoginEmail\", jsonData.Email);\r",
-									"    console.log(pm.environment.get(\"userLoginEmail\", jsonData.Email));\r",
-									"   pm.environment.set(\"password\", jsonData.loginPassword);\r",
-									"   console.log(pm.environment.get(\"password\", jsonData.loginPassword));\r",
+									"  // pm.environment.set(\"userLoginEmail\", jsonData.Email);\r",
+									"   // console.log(pm.environment.get(\"userLoginEmail\", jsonData.Email));\r",
+									"  // pm.environment.set(\"password\", jsonData.loginPassword);\r",
+									"  // console.log(pm.environment.get(\"password\", jsonData.loginPassword));\r",
 									"});\r",
 									"pm.test(\"Status code is 201\", function () {\r",
 									"    pm.response.to.have.status(201);\r",
@@ -138,7 +138,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ContactNumber\": \"8051318794\",\r\n  \"DateOfBirth\": \"2011-05-26\",\r\n  \"Education\": \"mba\",\r\n  \"Email\": \"ks23@gmail.com\",\r\n  \"Firstname\": \"sunpo\",\r\n  \"HospitalCity\": \"chicago\",\r\n  \"HospitalName\": \"loyola\",\r\n  \"HospitalPincode\": \"897898\",\r\n  \"HospitalStreet\": \"westside\",\r\n  \"Lastname\": \"castd\"\r\n \r\n}",
+							"raw": "{\r\n  \"ContactNumber\": \"8531318794\",\r\n  \"DateOfBirth\": \"2010-05-26\",\r\n  \"Education\": \"mba\",\r\n  \"Email\": \"lkis23@gmail.com\",\r\n  \"Firstname\": \"sunpo\",\r\n  \"HospitalCity\": \"chicago\",\r\n  \"HospitalName\": \"loyola\",\r\n  \"HospitalPincode\": \"897898\",\r\n  \"HospitalStreet\": \"westside\",\r\n  \"Lastname\": \"castd\"\r\n \r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
