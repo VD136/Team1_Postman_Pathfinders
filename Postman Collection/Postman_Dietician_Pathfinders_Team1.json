@@ -49,6 +49,23 @@
 				},
 				{
 					"name": "patientcreated",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1fd020d5-8a7d-4b1d-a25c-9cf40c09a710",
+								"exec": [
+									"var dieticianToken = pm.response.json().token;\r",
+									"pm.environment.set(\"dietician_Token\", dieticianToken);\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "cc60adca-f3d3-4ded-bc68-52dabf747cee",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -61,7 +78,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "\r\n{\r\n\"password\": \"Ideal78\",\r\n\"userLoginEmail\": \"hfds23@gmail.com\"\r\n}",
+							"raw": "\r\n{\r\n\"password\": \"Amuse98\",\r\n\"userLoginEmail\": \"ks23@gmail.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
