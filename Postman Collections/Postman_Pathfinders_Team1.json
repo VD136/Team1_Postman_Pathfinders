@@ -412,7 +412,63 @@
 					"response": []
 				}
 			],
-			"id": "73bdb92c-53ae-47a6-b38b-e33ec885857a"
+			"id": "73bdb92c-53ae-47a6-b38b-e33ec885857a",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ae4c4075-6a1b-49d4-bdc4-acf3b7e5c6dc",
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							"// Load data from file",
+							"if (typeof pm.variables.get('requestsData') !== 'object') {",
+							"    pm.variables.set('requestsData', pm.iterationData.toObject());",
+							"}",
+							"const requestsData = pm.variables.get('requestsData');",
+							"",
+							"if (typeof requestsData !== 'object' || Object.keys(requestsData).length === 0) {",
+							"    console.log('No external data provided or object is empty.');",
+							"    return;",
+							"}",
+							"",
+							"// Find the current request",
+							"const currentRequest = requestsData.requests.filter(({name}) => name === pm.info.requestName)[0];",
+							"",
+							"// Skip the rest since we have no data",
+							"if (!currentRequest) {",
+							"    console.log(`Request ${pm.info.requestName} has no data defined.`);",
+							"    return;",
+							"}",
+							"",
+							"// Expose variables",
+							"const variables = currentRequest.data.shift();",
+							"",
+							"for (const [key,value] of Object.entries(variables)) {",
+							"    pm.variables.set(key, value);",
+							"}",
+							"",
+							"pm.variables.set('requestsData', requestsData);",
+							"",
+							"// Decide where to go next",
+							"if (currentRequest.data.length > 0) {",
+							"    pm.execution.setNextRequest(pm.info.requestName);",
+							"}"
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "29d1e150-4e55-4400-98d6-0230f51d1178",
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
 		}
 	]
 }
