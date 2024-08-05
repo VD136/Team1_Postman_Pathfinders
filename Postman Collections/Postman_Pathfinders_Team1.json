@@ -37,7 +37,381 @@
 		},
 		{
 			"name": "Morbidity",
-			"item": [],
+			"item": [
+				{
+					"name": "admin_login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3bf1ca8f-c9ac-4ff2-a268-1756a13a7d45",
+								"exec": [
+									"var adminToken = pm.response.json().token;",
+									"pm.environment.set(\"adToken\", adminToken);",
+									"console.log(pm.environment.get(\"adToken\"));",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Status code name has string\", function () {",
+									"    pm.response.to.have.status(\"OK\");",
+									"});",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"pm.test(\"Content-Type is application/json\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json\");",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "d47b2a74-63de-46a1-be1a-25a9fcfe39cb",
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "22c2f42f-9b0a-40e2-836d-4843e49c0de5",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"password\": \"test\",\n  \"userLoginEmail\": \"Team1@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/login"
+					},
+					"response": []
+				},
+				{
+					"name": "all_morbidity_dietician",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "2fe57c25-a2e9-4a06-b29f-cabe6168e0e6",
+								"exec": [
+									"/*const token2 = pm.globals.get(\"dieticianToken\");",
+									"if(token2) {",
+									"    pm.request.headers.add({",
+									"        key: \"Authorization\",",
+									"        value: 'Bearer ${token2}'",
+									"    });",
+									"} else {",
+									"    console.error(\"dietician token not found in global variables\")",
+									"}*/"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "354dfa50-132a-4d9c-90b6-9e113bf34a85",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"pm.test(\"Status code name has string\", function () {",
+									"    pm.response.to.have.status(\"OK\");",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "bb4b4f2d-4fdf-4571-a9f8-3a02bb1276ef",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{dieticianToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/morbidity"
+					},
+					"response": []
+				},
+				{
+					"name": "dietician_login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "19e96b34-d7df-4a3c-b2f2-3e6b8b773b6f",
+								"exec": [
+									"var dieticianToken = pm.response.json().token;",
+									"pm.globals.set(\"dieticianToken\", dieticianToken);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "cfe9ad5a-a2a8-4b35-8cba-a118366163c9",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"password\": \"Arches45\",\n  \"userLoginEmail\": \"diet_1@ninja.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/login"
+					},
+					"response": []
+				},
+				{
+					"name": "morbidity_admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8bfcca11-34bd-41a0-b319-f4229b5e3b28",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Status code name has string\", function () {",
+									"    pm.response.to.have.status(\"OK\");",
+									"});",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"pm.test(\"Content-Type is application/json\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json\");",
+									"});",
+									"",
+									"// Fetch values from json",
+									"const expectedValues = pm.variables.get('expectedValue');",
+									"",
+									"// Parse the response body as JSON",
+									"const response = pm.response.json();",
+									"",
+									"// Loop through each item in the response and validate against expected values",
+									"response.forEach(item => {",
+									"    const testName = item.morbidityTestName;",
+									"    const unit = item.morbidityTestUnit;",
+									"    const minVal = item.morbidityMarkerMinVal;",
+									"    const maxVal = item.morbidityMarkerMaxVal;",
+									"",
+									"        // Check if the unit is in the expected values for this testName",
+									"        if (expectedValues.hasOwnProperty(unit)) {",
+									"            const expected = expectedValues[unit];",
+									"",
+									"            // Define the test case for this item",
+									"            pm.test(`Validate ${testName} with unit ${unit}`, function () {",
+									"                pm.expect(minVal).to.eql(expected.min, `Expected min value for ${testName} (${unit}) is ${expected.min}`);",
+									"                pm.expect(maxVal).to.eql(expected.max, `Expected max value for ${testName} (${unit}) is ${expected.max}`);",
+									"            });",
+									"        } else {",
+									"            // Log a warning if the unit is not in the expected values for this testName",
+									"            pm.test(`Unexpected unit for ${testName}`, function () {",
+									"                pm.expect(unit).to.be.oneOf(Object.keys(testExpectedValues), `Unexpected unit: ${unit} for ${testName}`);",
+									"            });",
+									"        }",
+									"  ",
+									"});",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "284640f5-79ef-4807-b0ca-74f639c70447",
+								"exec": [
+									"/*console.log(\"Request Name: \", pm.info.requestName);",
+									"// Check if the admin request has been executed",
+									"if (!pm.environment.get(\"adminRequestExecuted\")) {",
+									"    // If not executed, set the next request to `admin` and exit",
+									"    console.log(\"Inside If\")",
+									"    pm.execution.setNextRequest('admin_login');",
+									"} else {",
+									"    // If already executed, proceed with the current request",
+									"     console.log(\"Inside else\")",
+									"     pm.execution.setNextRequest(null);",
+									"}*/"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "c8f0f952-8d6a-466c-9aac-4b6150206a43",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{adToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": "{{baseUrl}}/{{morbidityName}}"
+					},
+					"response": []
+				},
+				{
+					"name": "all_morbidity_admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "30ae605c-8c9f-441f-81d5-47b442b5a545",
+								"exec": [
+									"//Get the response JSON",
+									"var response = pm.response.json();",
+									"",
+									"// Check if the response is an array",
+									"pm.test(\"Get all Morbidities Response is an array\", function () {",
+									"    pm.expect(response).to.be.an('array');",
+									"});",
+									"",
+									"// Iterate through the array to validate each object",
+									"response.forEach(function(item) {",
+									"    // Check the presence of all required keys",
+									"    pm.test(\"Get all Morbidities - Validate Morbidity key fields \", function () {",
+									"        pm.expect(item).to.have.keys([",
+									"            'morbidityId',",
+									"            'morbidityTestId',",
+									"            'morbidityNameRegex',",
+									"            'morbidityTestName',",
+									"            'morbidityTestUnit',",
+									"            'morbidityMarkerMinVal',",
+									"            'morbidityMarkerMaxVal'",
+									"        ]);",
+									"    });",
+									"",
+									"    // Check the type of each key",
+									"    pm.test(\"Type validation for response item keys\", function () {",
+									"        pm.expect(item.morbidityId).to.be.a('number');",
+									"        pm.expect(item.morbidityTestId).to.be.a('string');",
+									"        pm.expect(item.morbidityNameRegex).to.be.a('string');",
+									"        pm.expect(item.morbidityTestName).to.be.a('string');",
+									"        pm.expect(item.morbidityTestUnit).to.be.a('string');",
+									"        pm.expect(item.morbidityMarkerMinVal).to.be.a('number');",
+									"        pm.expect(item.morbidityMarkerMaxVal).to.be.a('number');",
+									"    });",
+									"",
+									"    // Check accepted values for morbidityTestName",
+									"    pm.test(\"Validate accepted values for morbidityTestName\", function () {",
+									"        const acceptedValues = [",
+									"            \"Fasting Glucose\",\"Average Glucose\", \"Plasma Glucose\", \"HbA1c\", \"TSH\", \"T3\", \"T4\",\"Blood Pressure Levels\"",
+									"        ];",
+									"        pm.expect(acceptedValues).to.include(item.morbidityTestName);",
+									"    });",
+									"",
+									"    // Check accepted values for morbidityTestUnit",
+									"    pm.test(\"Validate accepted values for morbidityTestUnit for \" +item.morbidityTestId, function () {",
+									"        const acceptedValues = [",
+									"            \"mg/dL\", \"%\", \"μIU/ml\", \"uIU/ml\", \"ng/dL\", \"ng/mL\", \"pg/mL\", \"nmol/L\",\"μg/dL\", \"ug/dL\", \"mm Hg\",\"mIU/L\"",
+									"        ];",
+									"        pm.expect(acceptedValues).to.include(item.morbidityTestUnit);",
+									"    });",
+									"",
+									"    // Validation: Min value should be less than Max value",
+									"    pm.test(\"Min value should be less than Max value for \" +item.morbidityTestId, function () {",
+									"        pm.expect(item.morbidityMarkerMinVal).to.be.lessThan(item.morbidityMarkerMaxVal);",
+									"    ",
+									"    });",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "0c488c52-b852-4350-b810-ccc92fd52443",
+								"exec": [
+									"/*const token = pm.globals.get(\"adminToken\");",
+									"console.log(pm.globals.get(\"adminToken\"))",
+									"console.log(token);",
+									"",
+									"if(token) {",
+									"    pm.request.headers.add({",
+									"        key: \"Authorization\",",
+									"        value: `Bearer ${token}`",
+									"    });",
+									"} else {",
+									"    console.error(\"admin token not found in global variables\")",
+									"}*/"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "30a5fee3-e457-4c24-8165-4335d1910e6e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{adminToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/morbidity"
+					},
+					"response": []
+				}
+			],
 			"id": "73bdb92c-53ae-47a6-b38b-e33ec885857a"
 		}
 	]
