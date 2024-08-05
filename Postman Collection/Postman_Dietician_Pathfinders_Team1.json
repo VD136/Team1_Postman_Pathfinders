@@ -78,7 +78,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "\r\n{\r\n\"password\": \"Amuse98\",\r\n\"userLoginEmail\": \"ks23@gmail.com\"\r\n}",
+							"raw": "\r\n{\r\n\"password\":\"{{password}}\",\r\n\"userLoginEmail\":\"{{userLoginEmail}}\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
