@@ -86,7 +86,8 @@
 							"script": {
 								"id": "fcfd3a5a-e962-47dc-9e3a-d02fc718eb75",
 								"exec": [
-									"pm.variables.set(\"admintoken\", \"token\");\r",
+									"pm.environment.set(\"adminToken\", \"adminToken\");\r",
+									"\r",
 									""
 								],
 								"type": "text/javascript",
@@ -102,7 +103,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "{{admintoken}}"
+								"token": "{{adminToken}}"
 							}
 						},
 						"method": "POST",
