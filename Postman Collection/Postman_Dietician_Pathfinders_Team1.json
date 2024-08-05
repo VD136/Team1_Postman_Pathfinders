@@ -229,7 +229,7 @@
 			"name": "Patient1",
 			"item": [
 				{
-					"name": "New Request",
+					"name": "create patient",
 					"event": [
 						{
 							"listen": "test",
