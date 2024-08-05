@@ -150,7 +150,22 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "Ditecian id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2a18a504-7536-47c6-81b1-dd702515d91e",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "bf260e39-a764-446c-869f-f3691b443ab3",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -163,6 +178,40 @@
 							}
 						},
 						"method": "GET",
+						"header": [],
+						"url": "{{Baseurl}}/dietician/{{dietician_id1}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Ditecian id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5255d8e2-051c-4756-a227-958e0fa873ce",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "04e66cb2-60f3-4411-99d5-3c9f4bae513b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{adminToken}}"
+							}
+						},
+						"method": "DELETE",
 						"header": [],
 						"url": "{{Baseurl}}/dietician/{{dietician_id1}}"
 					},
