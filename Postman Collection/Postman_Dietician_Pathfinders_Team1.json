@@ -156,8 +156,15 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{adminToken}}"
+							}
+						},
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": "{{Baseurl}}/dietician/{{dietician_id1}}"
 					},
 					"response": []
 				}
