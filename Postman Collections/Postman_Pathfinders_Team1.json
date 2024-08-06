@@ -73,9 +73,9 @@
 							"script": {
 								"id": "d47b2a74-63de-46a1-be1a-25a9fcfe39cb",
 								"exec": [
-									"let newrequestBodyObj = pm.variables.get('RequestBody');",
+									"const newrequestBodyObj = pm.variables.get('RequestBody');",
 									"//pm.collectionVariables.set(\"newrequestBody\", JSON.stringify(newrequestBodyObj));",
-									"    pm.request.body.update(JSON.parse(pm.variables.get('RequestBody')));",
+									"    pm.request.body.update(JSON.parse(newrequestBodyObj));",
 									"    console.log(\"Request body updated:\",newrequestBodyObj);"
 								],
 								"type": "text/javascript",
