@@ -89,7 +89,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"password\": \"{{password}}\",\n  \"userLoginEmail\": \"{{userLoginEmail}}\"\n}",
+							"raw": "\"{{RequestBody}}\"",
 							"options": {
 								"raw": {
 									"language": "json"
