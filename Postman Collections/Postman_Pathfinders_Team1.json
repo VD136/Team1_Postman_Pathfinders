@@ -76,8 +76,8 @@
 									"let newrequestBodyObj = pm.variables.get('RequestBody');",
 									"pm.variables.set('MorbidityAdminRequest', JSON.stringify(newrequestBodyObj));",
 									"//pm.request.body.update(JSON.stringify(newrequestBodyObj));",
-									"console.log(\"Request body password:\", pm.variables.get('RequestBody.password'));",
-									"console.log(\"Request body loginemail:\", pm.variables.get('RequestBody.userLoginEmail'));",
+									"console.log(\"Request body password:\", pm.variables.get(RequestBody[password]));",
+									"console.log(\"Request body loginemail:\", pm.variables.get(RequestBody[userLoginEmail]));",
 									""
 								],
 								"type": "text/javascript",
