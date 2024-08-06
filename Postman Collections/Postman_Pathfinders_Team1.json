@@ -73,7 +73,7 @@
 							"script": {
 								"id": "d47b2a74-63de-46a1-be1a-25a9fcfe39cb",
 								"exec": [
-									"const newrequestBody = JSON.parse(RequestBody);",
+									"const newrequestBody = JSON.parse(pm.variables.get('RequestBody'));",
 									"    pm.request.body.update(newrequestBody);",
 									"    console.log(\"Request body updated:\",newrequestBody);"
 								],
@@ -91,7 +91,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "\"{{RequestBody}}\"",
+							"raw": "{{RequestBody}}",
 							"options": {
 								"raw": {
 									"language": "json"
