@@ -74,7 +74,7 @@
 								"id": "d47b2a74-63de-46a1-be1a-25a9fcfe39cb",
 								"exec": [
 									"let newrequestBodyObj = pm.variables.get('RequestBody');",
-									"pm.variables.set('MorbidityAdminRequest', JSON.stringify(newrequestBodyObj));",
+									"pm.variables.set('AdminRequest', JSON.stringify(newrequestBodyObj));",
 									"//pm.request.body.update(JSON.stringify(newrequestBodyObj));",
 									"console.log(\"Request body password:\", newrequestBodyObj.password);",
 									"console.log(\"Request body loginemail:\", newrequestBodyObj.userLoginEmail);",
@@ -94,7 +94,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "//{\"password\": \"test\", \"userLoginEmail\": \"Team1@gmail.com\"}\n{{MorbidityAdminRequest}}",
+							"raw": "//{\"password\": \"test\", \"userLoginEmail\": \"Team1@gmail.com\"}\n{{AdminRequest}}",
 							"options": {
 								"raw": {
 									"language": "json"
