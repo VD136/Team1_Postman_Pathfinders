@@ -73,7 +73,7 @@
 							"script": {
 								"id": "d47b2a74-63de-46a1-be1a-25a9fcfe39cb",
 								"exec": [
-									"const newrequestBody = pm.variables.get('RequestBody');",
+									"let newrequestBody = pm.variables.get('RequestBody');",
 									"    pm.request.body.update(newrequestBody);",
 									"    console.log(\"Request body updated:\",newrequestBody);"
 								],
