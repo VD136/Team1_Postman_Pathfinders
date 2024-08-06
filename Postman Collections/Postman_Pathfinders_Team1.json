@@ -91,7 +91,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{{RequestBody}}",
+							"raw": "{{newrequestBody}}",
 							"options": {
 								"raw": {
 									"language": "json"
