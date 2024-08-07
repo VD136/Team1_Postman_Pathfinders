@@ -1126,7 +1126,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "35a7dd17-d089-4b5e-8223-cd81ef2e5a57",
+						"id": "2740c72d-ca3c-4555-bf1b-e8885e524704",
 						"type": "text/javascript",
 						"packages": {},
 						"exec": [
@@ -1138,7 +1138,7 @@
 							"// Load data from file",
 							"if (typeof pm.variables.get('requestsData') !== 'object') {",
 							"        console.log(\"inside\")",
-							"        pm.variables.set('requestsData',    requestsDataObj.toObject());",
+							"        pm.variables.set('requestsData',    requestsDataObj);",
 							"",
 							"    //pm.variables.set('requestsData', pm.iterationData.toObject());",
 							"}",
@@ -1177,7 +1177,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "fb314c7b-9ea6-4f42-90b6-be5fff521d2d",
+						"id": "64dd0568-f58b-4fa3-babe-3409183dcf08",
 						"type": "text/javascript",
 						"packages": {},
 						"exec": [
