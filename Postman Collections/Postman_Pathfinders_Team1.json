@@ -94,7 +94,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "//{\"password\": \"test\", \"userLoginEmail\": \"Team1@gmail.com\"}\n{{AdminRequest}}",
+							"raw": "{\"password\": \"test\", \"userLoginEmail\": \"Team1@gmail.com\"}\n//{{AdminRequest}}",
 							"options": {
 								"raw": {
 									"language": "json"
