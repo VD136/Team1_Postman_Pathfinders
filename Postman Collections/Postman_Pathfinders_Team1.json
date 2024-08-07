@@ -1126,7 +1126,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "17ed1323-bbc8-47e1-bd4a-fcb068224420",
+						"id": "6e18ff86-2429-4384-847b-45c403ac4def",
 						"type": "text/javascript",
 						"packages": {},
 						"exec": [
@@ -1138,7 +1138,12 @@
 							"let requestsDataObj;",
 							"try {",
 							"    requestsDataObj = JSON.parse(jsonString);",
-							"     pm.variables.set('requestsData', requestsDataObj);",
+							"    pm.variables.set('requestsData', requestsDataObj);",
+							"    // Get the type of the object",
+							"    const objectType = typeof requestsDataObj;",
+							"",
+							"    // Print the type of the object to the Postman console",
+							"    console.log('Type of exampleObject:', objectType);",
 							"} catch (error) {",
 							"    console.error('Error parsing JSON:', error);",
 							"    return; // Exit if parsing fails",
@@ -1186,7 +1191,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "586259b0-0d98-465c-b0e4-85c76afb5bea",
+						"id": "d1719770-8403-4dc2-aaf3-76474906abc8",
 						"type": "text/javascript",
 						"packages": {},
 						"exec": [
