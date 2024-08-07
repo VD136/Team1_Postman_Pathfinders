@@ -1126,17 +1126,17 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "05391f40-1fae-43ac-b702-fa8c375eadc5",
+						"id": "b1de4cca-67ad-43b6-b4e9-b3fef6ab7719",
 						"type": "text/javascript",
 						"packages": {},
 						"exec": [
 							"// Load data from file",
-							"/*if (typeof pm.variables.get('requestsData') !== 'object') {",
+							"if (typeof pm.variables.get('requestsData') !== 'object') {",
 							"    pm.variables.set('requestsData', pm.iterationData.toObject());",
-							"}*/",
+							"}",
 							"// Retrieve the JSON string from the CSV file",
 							"// Retrieve the JSON string from the CSV file",
-							"const jsonString = pm.iterationData.get('jsondata');",
+							"/*const jsonString = pm.iterationData.get('jsondata');",
 							"",
 							"if (!jsonString) {",
 							"    console.log('No data provided.');",
@@ -1166,12 +1166,12 @@
 							"    // Handle any parsing errors",
 							"    console.error('Failed to parse JSON data:', e);",
 							"}",
-							"",
-							"/*if (typeof requestsData !== 'object' || Object.keys(requestsData).length === 0) {",
+							"*/",
+							"if (typeof requestsData !== 'object' || Object.keys(requestsData).length === 0) {",
 							"     console.log('Before');",
 							"    console.log('No external data provided or object is empty.');",
 							"    return;",
-							"}*/",
+							"}",
 							"",
 							"// Find the current request",
 							"const currentRequest = requestsData.requests.filter(({name}) => name === pm.info.requestName)[0];",
@@ -1201,7 +1201,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "b5b7487f-3f6d-4715-9203-563e82ec025c",
+						"id": "dc71af29-81c8-43c3-887b-abacb953c6e3",
 						"type": "text/javascript",
 						"packages": {},
 						"exec": [
