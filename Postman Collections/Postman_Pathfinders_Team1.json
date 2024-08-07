@@ -1126,7 +1126,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "4907555e-47ec-4682-95c6-e35f045f4dce",
+						"id": "6fb465fb-f3f7-4cf4-9ea8-2c93a87f7517",
 						"type": "text/javascript",
 						"packages": {},
 						"exec": [
@@ -1151,7 +1151,7 @@
 							"console.log('requestsData:', requestsData);",
 							"",
 							"// Find the current request",
-							"const currentRequest = requestsData.requests.filter(({ name }) => name === pm.info.requestName)[0];",
+							"const currentRequest = requestsData[0].requests.find(({ name }) => name === pm.info.requestName);",
 							"",
 							"// Skip the rest since we have no data",
 							"if (!currentRequest) {",
@@ -1181,7 +1181,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "1f2b5585-b28a-4967-b862-ceca6759c76c",
+						"id": "233a7e7b-0d12-4b7b-8883-761002b744a2",
 						"type": "text/javascript",
 						"packages": {},
 						"exec": [
