@@ -1126,7 +1126,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "46639660-34b6-41cf-8f8d-4f36970885e5",
+						"id": "cd1a7cb3-9451-4fa0-bfba-fd3084589c4a",
 						"type": "text/javascript",
 						"packages": {},
 						"exec": [
@@ -1137,7 +1137,7 @@
 							"// Retrieve the JSON string from the CSV file",
 							"",
 							"const jsonString = pm.iterationData.get('jsonDataString');",
-							"",
+							" console.log('Njson :' , jsonString);",
 							"  pm.variables.set('requestsData', jsonString.toObject());",
 							"",
 							"if (typeof requestsData !== 'object' || Object.keys(requestsData).length === 0) {",
@@ -1174,7 +1174,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "5bb03256-1b4b-4cc2-b268-2291be0e2226",
+						"id": "4ec03333-26c8-4ea8-b1b1-671003b85599",
 						"type": "text/javascript",
 						"packages": {},
 						"exec": [
