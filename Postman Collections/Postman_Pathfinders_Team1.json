@@ -1126,7 +1126,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "c2a9cc94-37de-4242-92ae-dcb2d34d69fe",
+						"id": "0df5288e-c879-4b47-b2c6-c8905998d535",
 						"type": "text/javascript",
 						"packages": {},
 						"exec": [
@@ -1135,7 +1135,7 @@
 							"if (typeof pm.variables.get('requestsData') !== 'object') {",
 							"     pm.variables.set('requestsData', pm.iterationData.toObject());",
 							"}",
-							"const requestsData = pm.variables.get('requestsData') || {};",
+							"const requestsData = pm.variables.get('requestsData');",
 							"",
 							"if (typeof requestsData !== 'object' || Object.keys(requestsData).length === 0) {",
 							"    console.log('No external data provided or object is empty.');",
@@ -1170,7 +1170,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "f7db23d2-5dda-47cd-aa3f-85ad6264d949",
+						"id": "a73f9329-dcc3-44ef-acd4-2237721bd997",
 						"type": "text/javascript",
 						"packages": {},
 						"exec": [
