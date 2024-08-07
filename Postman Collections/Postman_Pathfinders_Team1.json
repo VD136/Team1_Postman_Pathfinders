@@ -1126,7 +1126,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "78570254-fe13-4c0d-a4af-ae9b3fd22b7d",
+						"id": "05391f40-1fae-43ac-b702-fa8c375eadc5",
 						"type": "text/javascript",
 						"packages": {},
 						"exec": [
@@ -1151,7 +1151,7 @@
 							"",
 							"    // Validate that requestsData is an object and not an array",
 							"    if (typeof requestsData !== 'object' || requestsData === null || Array.isArray(requestsData) || Object.keys(requestsData).length === 0) {",
-							"        console.log('Before');",
+							"        console.log('i am here');",
 							"        console.log('No external data provided or object is empty.');",
 							"        return;",
 							"    }",
@@ -1201,7 +1201,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "c1052fa4-1b07-45bb-948d-49160ad05a72",
+						"id": "b5b7487f-3f6d-4715-9203-563e82ec025c",
 						"type": "text/javascript",
 						"packages": {},
 						"exec": [
