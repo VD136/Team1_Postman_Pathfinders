@@ -1126,7 +1126,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "6e18ff86-2429-4384-847b-45c403ac4def",
+						"id": "927f9859-eb0b-49b1-af87-125b5c08fcdf",
 						"type": "text/javascript",
 						"packages": {},
 						"exec": [
@@ -1138,7 +1138,7 @@
 							"let requestsDataObj;",
 							"try {",
 							"    requestsDataObj = JSON.parse(jsonString);",
-							"    pm.variables.set('requestsData', requestsDataObj);",
+							"    pm.variables.set('requestsData', JSON.stringify(requestsDataObj));",
 							"    // Get the type of the object",
 							"    const objectType = typeof requestsDataObj;",
 							"",
@@ -1191,7 +1191,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "d1719770-8403-4dc2-aaf3-76474906abc8",
+						"id": "94e5bf28-6024-402f-869f-eaf4497b4cee",
 						"type": "text/javascript",
 						"packages": {},
 						"exec": [
