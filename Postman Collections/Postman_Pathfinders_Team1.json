@@ -1126,7 +1126,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "8023ed0c-43d1-43fc-9671-6816cdf1ad41",
+						"id": "5191be7a-460a-4184-869a-c8732da73fb5",
 						"type": "text/javascript",
 						"packages": {},
 						"exec": [
@@ -1138,9 +1138,9 @@
 							"const jsonString = pm.iterationData.get('jsonDataString');",
 							"",
 							"// Parse the JSON string into a JavaScript object",
-							"const requestsData = JSON.parse(jsonString);",
+							"const requestsDataObject = JSON.parse(jsonString);",
 							"// Set the parsed JSON object to a Postman variable",
-							"pm.variables.set('requestsData', requestsData);",
+							"pm.variables.set('requestsData', requestsDataObject);",
 							"",
 							"const requestsData = pm.variables.get('requestsData');",
 							"",
@@ -1177,7 +1177,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "741504fd-e9a1-45d9-88a2-15db9e91aad1",
+						"id": "d5ff8856-f643-4c3e-9f25-ca2e0668df7b",
 						"type": "text/javascript",
 						"packages": {},
 						"exec": [
