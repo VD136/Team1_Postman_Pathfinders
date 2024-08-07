@@ -1126,7 +1126,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "aa15bda4-ac32-4320-ae0f-02e7de2c65b4",
+						"id": "b9583c92-c403-498d-bb78-262cb98e2e18",
 						"type": "text/javascript",
 						"packages": {},
 						"exec": [
@@ -1156,13 +1156,18 @@
 							"try {",
 							"    requestsData = JSON.parse(requestsDataString);",
 							"    console.log('requestsData:', requestsData); // Log the parsed object after retrieval",
+							"    // Get the type of the object",
+							"    const objectType = typeof requestsDataObj;",
+							"",
+							"    // Print the type of the object to the Postman console",
+							"    console.log('Type of exampleObject:', objectType);",
 							"} catch (error) {",
 							"    console.error('Error parsing stored requestsData:', error);",
 							"    return; // Exit if parsing fails",
 							"}",
 							"",
-							"const requestsData = pm.variables.get('requestsData');",
-							"console.log('requestsData:', requestsData);",
+							"//const requestsData = pm.variables.get('requestsData');",
+							"//console.log('requestsData:', requestsData);",
 							"",
 							"// Load data from file",
 							"/*if (typeof pm.variables.get('requestsData') !== 'object') {",
@@ -1203,7 +1208,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "24dbd87e-a114-4838-a7ef-b6d8df11f563",
+						"id": "00afda60-1f5d-493f-a05a-38195a532f6c",
 						"type": "text/javascript",
 						"packages": {},
 						"exec": [
