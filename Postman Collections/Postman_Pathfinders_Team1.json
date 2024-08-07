@@ -1126,12 +1126,15 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "ddebea83-771d-4e15-93ae-b7b496d20c18",
+						"id": "a7161ce5-0b41-4920-9a0a-898af601b2f6",
 						"type": "text/javascript",
 						"packages": {},
 						"exec": [
 							"// Retrieve the JSON string from the CSV file",
 							"const jsonString = pm.iterationData.get('jsondata');",
+							"",
+							"// Log the raw JSON string for debugging",
+							"console.log('Retrieved JSON string:', jsonString);",
 							"",
 							"if (!jsonString) {",
 							"    console.log('No data provided.');",
@@ -1143,6 +1146,9 @@
 							"try {",
 							"    // Parse the JSON string into a JavaScript object",
 							"    requestsData = JSON.parse(jsonString);",
+							"",
+							"    // Log the parsed object for debugging",
+							"    console.log('Parsed JSON object:', requestsData);",
 							"",
 							"    // Check if requestsData is a valid object",
 							"    if (",
@@ -1204,7 +1210,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "1244c472-b7af-4f3a-b81d-11b15023eff9",
+						"id": "5f82b872-2b61-4329-b3e5-a57b9fe9d6fc",
 						"type": "text/javascript",
 						"packages": {},
 						"exec": [
