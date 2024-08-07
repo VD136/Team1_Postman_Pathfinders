@@ -1126,7 +1126,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "342650f2-1f1e-485b-aa7a-7c0f1b319008",
+						"id": "fff222dd-d6ba-4d11-84d0-42545134ccb2",
 						"type": "text/javascript",
 						"packages": {},
 						"exec": [
@@ -1139,13 +1139,13 @@
 							"    return;",
 							"}",
 							"",
-							"let requestsData;",
+							"let requestsDataObj;",
 							"",
 							"try {",
 							"    // Parse the JSON string into a JavaScript object",
-							"    requestsData = JSON.parse(jsonString);",
-							"    console.log('Parsed JSON object:', requestsData);",
-							"",
+							"    requestsDataObj = JSON.parse(jsonString);",
+							"    console.log('Parsed JSON object:', requestsDataObj[0]);",
+							"   let requestsData = requestsDataObj[0];",
 							"    // Check if requestsData is an array and if it is not empty",
 							"    if (!Array.isArray(requestsData) || requestsData.length === 0) {",
 							"        console.log('Data is not an array or is empty.');",
@@ -1202,7 +1202,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "a5cdeeed-469d-4b60-b768-079d6ec945f9",
+						"id": "387009ec-be88-4785-955d-13343766ca73",
 						"type": "text/javascript",
 						"packages": {},
 						"exec": [
