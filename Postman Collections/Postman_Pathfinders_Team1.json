@@ -1126,7 +1126,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "927f9859-eb0b-49b1-af87-125b5c08fcdf",
+						"id": "aa15bda4-ac32-4320-ae0f-02e7de2c65b4",
 						"type": "text/javascript",
 						"packages": {},
 						"exec": [
@@ -1146,6 +1146,18 @@
 							"    console.log('Type of exampleObject:', objectType);",
 							"} catch (error) {",
 							"    console.error('Error parsing JSON:', error);",
+							"    return; // Exit if parsing fails",
+							"}",
+							"// Retrieve and parse the stored string back to an object",
+							"const requestsDataString = pm.variables.get('requestsData');",
+							"console.log('requestsDataString:', requestsDataString); // Log the stored string",
+							"",
+							"let requestsData;",
+							"try {",
+							"    requestsData = JSON.parse(requestsDataString);",
+							"    console.log('requestsData:', requestsData); // Log the parsed object after retrieval",
+							"} catch (error) {",
+							"    console.error('Error parsing stored requestsData:', error);",
 							"    return; // Exit if parsing fails",
 							"}",
 							"",
@@ -1191,7 +1203,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "94e5bf28-6024-402f-869f-eaf4497b4cee",
+						"id": "24dbd87e-a114-4838-a7ef-b6d8df11f563",
 						"type": "text/javascript",
 						"packages": {},
 						"exec": [
