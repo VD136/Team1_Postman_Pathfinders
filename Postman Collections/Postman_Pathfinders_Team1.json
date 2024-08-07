@@ -1126,7 +1126,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "7518fe5a-f1d5-46a0-88f0-a0ac50860e75",
+						"id": "6ebf912b-9a41-4ae5-8445-7e51a90281bd",
 						"type": "text/javascript",
 						"packages": {},
 						"exec": [
@@ -1140,7 +1140,7 @@
 							"});",
 							"// Load data from file",
 							"if (typeof pm.variables.get('requestsData') !== 'object') {",
-							"    pm.variables.set('requestsData', data.toObject());",
+							"    pm.variables.set('requestsData', pm.iterationData.toObject());",
 							"}",
 							"const requestsData = pm.variables.get('requestsData');",
 							"",
@@ -1177,7 +1177,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "4df128ef-8df4-49c1-80cb-5be7cc9e8d91",
+						"id": "b7b37327-aa52-4fdd-8c05-ba47efee56bb",
 						"type": "text/javascript",
 						"packages": {},
 						"exec": [
