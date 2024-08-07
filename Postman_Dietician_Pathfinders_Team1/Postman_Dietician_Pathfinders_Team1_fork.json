@@ -148,7 +148,7 @@
 					]
 				},
 				{
-					"name": "User Login Negative",
+					"name": "User Login Negative invalid password",
 					"event": [
 						{
 							"listen": "test",
@@ -288,7 +288,7 @@
 					]
 				},
 				{
-					"name": "User Login Negative 2",
+					"name": "User Login Negative 2 invalid email",
 					"event": [
 						{
 							"listen": "test",
@@ -428,7 +428,7 @@
 					]
 				},
 				{
-					"name": "User Login Negative 3",
+					"name": "User Login Negative 3 no auth",
 					"event": [
 						{
 							"listen": "test",
@@ -568,7 +568,7 @@
 					]
 				},
 				{
-					"name": "User Login Negative 4",
+					"name": "User Login Negative 4 no header",
 					"event": [
 						{
 							"listen": "test",
@@ -588,7 +588,13 @@
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true,
 						"disabledSystemHeaders": {
-							"content-type": true
+							"content-type": true,
+							"content-length": true,
+							"host": true,
+							"user-agent": true,
+							"accept": true,
+							"accept-encoding": true,
+							"connection": true
 						}
 					},
 					"request": {
