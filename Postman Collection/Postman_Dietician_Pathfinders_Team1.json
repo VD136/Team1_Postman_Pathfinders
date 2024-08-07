@@ -131,14 +131,14 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJUZWFtMUBnbWFpbC5jb20iLCJpYXQiOjE3MjI5OTMwMTEsImV4cCI6MTcyMzAyMTgxMX0.KGP5UxHvPgpKwL9I21C3KqFz1XBuUxP89aJPtlAp71XDNtM_bCHdjq1yeVwDtPlIsrcCOsvLTN3tlW0PU9kKPw"
+								"token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJUZWFtMUBnbWFpbC5jb20iLCJpYXQiOjE3MjMwNjUxOTksImV4cCI6MTcyMzA5Mzk5OX0.eUt55n_S6bSEwIFHBdvVbSyu19oIsfbh_A2ilhtWLa2QvIPvrk7HdMu-3o2gx85Qt8m7KUIFv5TeYrt1dKfaPg"
 							}
 						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ContactNumber\": \"5601318794\",\r\n  \"DateOfBirth\": \"2021-05-26\",\r\n  \"Education\": \"mba\",\r\n  \"Email\": \"lklkijis23@gmail.com\",\r\n  \"Firstname\": \"sunpo\",\r\n  \"HospitalCity\": \"chicago\",\r\n  \"HospitalName\": \"loyola\",\r\n  \"HospitalPincode\": \"897898\",\r\n  \"HospitalStreet\": \"westside\",\r\n  \"Lastname\": \"castd\"\r\n \r\n}",
+							"raw": "{\r\n  \"ContactNumber\": \"5609318794\",\r\n  \"DateOfBirth\": \"2021-09-26\",\r\n  \"Education\": \"mba\",\r\n  \"Email\": \"lijis23@gmail.com\",\r\n  \"Firstname\": \"sunpo\",\r\n  \"HospitalCity\": \"chicago\",\r\n  \"HospitalName\": \"loyola\",\r\n  \"HospitalPincode\": \"897898\",\r\n  \"HospitalStreet\": \"westside\",\r\n  \"Lastname\": \"castd\"\r\n \r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -259,7 +259,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "{{dietician_Token}}"
+								"token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJsaWppczIzQGdtYWlsLmNvbSIsImlhdCI6MTcyMzA2NTMxNywiZXhwIjoxNzIzMDk0MTE3fQ.aB-TJu-tfK2tF78_yYZHZEUIA8Aue7G8ZCMBoHbmGR6tsOcgTgNcwX813Hz7jM0kHMLPO8TKVejxPW__r35N3g"
 							}
 						},
 						"method": "POST",
@@ -269,7 +269,7 @@
 							"formdata": [
 								{
 									"key": "patientInfo",
-									"value": "{ \"FirstName\": \"jgfd\",\n\"LastName\": \"fss\",\n\"ContactNumber\": \"9545335660\",\n\"Email\": \"hgnj90@gmail.com\",\n\"Allergy\": \"SOY\",\n\"FoodPreference\": \"vegan\",\n\"CuisineCategory\":\"indian\",\n\"DateOfBirth\": \"1997-09-20\"\n}",
+									"value": "{ \"FirstName\": \"jgfd\",\n\"LastName\": \"fss\",\n\"ContactNumber\": \"9895335660\",\n\"Email\": \"hj90@gmail.com\",\n\"Allergy\": \"SOY\",\n\"FoodPreference\": \"vegan\",\n\"CuisineCategory\":\"indian\",\n\"DateOfBirth\": \"1997-09-20\"\n}",
 									"type": "text"
 								},
 								{
