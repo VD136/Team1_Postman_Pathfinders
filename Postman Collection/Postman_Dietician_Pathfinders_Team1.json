@@ -131,14 +131,14 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "{{adminToken}}"
+								"token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJUZWFtMUBnbWFpbC5jb20iLCJpYXQiOjE3MjI5OTMwMTEsImV4cCI6MTcyMzAyMTgxMX0.KGP5UxHvPgpKwL9I21C3KqFz1XBuUxP89aJPtlAp71XDNtM_bCHdjq1yeVwDtPlIsrcCOsvLTN3tlW0PU9kKPw"
 							}
 						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ContactNumber\": \"8501318794\",\r\n  \"DateOfBirth\": \"2020-05-26\",\r\n  \"Education\": \"mba\",\r\n  \"Email\": \"lklkijis23@gmail.com\",\r\n  \"Firstname\": \"sunpo\",\r\n  \"HospitalCity\": \"chicago\",\r\n  \"HospitalName\": \"loyola\",\r\n  \"HospitalPincode\": \"897898\",\r\n  \"HospitalStreet\": \"westside\",\r\n  \"Lastname\": \"castd\"\r\n \r\n}",
+							"raw": "{\r\n  \"ContactNumber\": \"5601318794\",\r\n  \"DateOfBirth\": \"2021-05-26\",\r\n  \"Education\": \"mba\",\r\n  \"Email\": \"lklkijis23@gmail.com\",\r\n  \"Firstname\": \"sunpo\",\r\n  \"HospitalCity\": \"chicago\",\r\n  \"HospitalName\": \"loyola\",\r\n  \"HospitalPincode\": \"897898\",\r\n  \"HospitalStreet\": \"westside\",\r\n  \"Lastname\": \"castd\"\r\n \r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
