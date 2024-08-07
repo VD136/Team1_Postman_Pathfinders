@@ -1126,7 +1126,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "a7161ce5-0b41-4920-9a0a-898af601b2f6",
+						"id": "2ce4d24a-9f27-4fd9-9f92-10741b5dc982",
 						"type": "text/javascript",
 						"packages": {},
 						"exec": [
@@ -1150,20 +1150,17 @@
 							"    // Log the parsed object for debugging",
 							"    console.log('Parsed JSON object:', requestsData);",
 							"",
-							"    // Check if requestsData is a valid object",
+							"    // Check if requestsData is an array and if it is not empty",
 							"    if (",
-							"        typeof requestsData !== 'object' || ",
-							"        requestsData === null || ",
-							"        Array.isArray(requestsData) || ",
-							"        Object.keys(requestsData).length === 0",
+							"        !Array.isArray(requestsData) || ",
+							"        requestsData.length === 0",
 							"    ) {",
-							"        console.log('Before');",
-							"        console.log('No external data provided or object is empty.');",
+							"        console.log('Data is not an array or is empty.');",
 							"        return;",
 							"    }",
 							"",
 							"    // If valid, log the data and set it as a Postman variable",
-							"    console.log('Valid JSON object received:', requestsData);",
+							"    console.log('Valid JSON array received:', requestsData);",
 							"    pm.variables.set('requestsData', requestsData);",
 							"",
 							"} catch (e) {",
@@ -1210,7 +1207,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "5f82b872-2b61-4329-b3e5-a57b9fe9d6fc",
+						"id": "0836f4d9-00b9-4040-a372-dd65f86e8833",
 						"type": "text/javascript",
 						"packages": {},
 						"exec": [
