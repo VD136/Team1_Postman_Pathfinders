@@ -1126,7 +1126,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "f97c2973-fc9b-440b-898d-cfc76fd33723",
+						"id": "6e5484c1-3668-4b1a-9c9a-1d12d74424f0",
 						"type": "text/javascript",
 						"packages": {},
 						"exec": [
@@ -1147,6 +1147,7 @@
 							"const requestsData = pm.variables.get('requestsData');",
 							"",
 							"if (typeof requestsData !== 'object' || Object.keys(requestsData).length === 0) {",
+							"     console.log('Before');",
 							"    console.log('No external data provided or object is empty.');",
 							"    return;",
 							"}",
@@ -1179,7 +1180,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "935d844b-d0dd-4324-a6a7-e5a1e3368493",
+						"id": "f53261db-2e76-4ec6-9d8c-01690d7cf956",
 						"type": "text/javascript",
 						"packages": {},
 						"exec": [
