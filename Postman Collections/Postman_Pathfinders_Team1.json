@@ -1126,14 +1126,22 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "ae4c4075-6a1b-49d4-bdc4-acf3b7e5c6dc",
+						"id": "8023ed0c-43d1-43fc-9671-6816cdf1ad41",
 						"type": "text/javascript",
 						"packages": {},
 						"exec": [
 							"// Load data from file",
-							"if (typeof pm.variables.get('requestsData') !== 'object') {",
+							"/*if (typeof pm.variables.get('requestsData') !== 'object') {",
 							"    pm.variables.set('requestsData', pm.iterationData.toObject());",
-							"}",
+							"}*/",
+							"// Retrieve the JSON string from the CSV file",
+							"const jsonString = pm.iterationData.get('jsonDataString');",
+							"",
+							"// Parse the JSON string into a JavaScript object",
+							"const requestsData = JSON.parse(jsonString);",
+							"// Set the parsed JSON object to a Postman variable",
+							"pm.variables.set('requestsData', requestsData);",
+							"",
 							"const requestsData = pm.variables.get('requestsData');",
 							"",
 							"if (typeof requestsData !== 'object' || Object.keys(requestsData).length === 0) {",
@@ -1169,7 +1177,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "29d1e150-4e55-4400-98d6-0230f51d1178",
+						"id": "741504fd-e9a1-45d9-88a2-15db9e91aad1",
 						"type": "text/javascript",
 						"packages": {},
 						"exec": [
