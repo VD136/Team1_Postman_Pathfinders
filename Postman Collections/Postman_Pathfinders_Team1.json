@@ -1126,7 +1126,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "89676e71-0496-41d8-95dc-4b44d39fa5c8",
+						"id": "6dba4bc2-ece6-43c2-af3e-680516fe3aca",
 						"type": "text/javascript",
 						"packages": {},
 						"exec": [
@@ -1138,7 +1138,8 @@
 							"let requestsDataObj;",
 							"try {",
 							"    requestsDataObj = JSON.parse(jsonString);",
-							"   // pm.variables.set('requestsData', JSON.stringify(requestsDataObj));",
+							"     // Store the object as a string in Postman variables",
+							"    pm.variables.set('requestsData', JSON.stringify(requestsDataObj));",
 							"    // Get the type of the object",
 							"    const objectType = typeof requestsDataObj;",
 							"",
@@ -1188,7 +1189,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "746eca2c-582c-475a-98a2-77ddda8ca4d9",
+						"id": "915631d5-cd91-45cc-b798-bfdacff3c352",
 						"type": "text/javascript",
 						"packages": {},
 						"exec": [
