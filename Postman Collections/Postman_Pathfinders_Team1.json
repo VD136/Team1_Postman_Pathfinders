@@ -1126,7 +1126,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "25e4754d-35fe-44a6-ab7e-a40d3160d38d",
+						"id": "5626d67b-6dc7-4b4f-a86e-cb1c11d8cf3e",
 						"type": "text/javascript",
 						"packages": {},
 						"exec": [
@@ -1136,22 +1136,9 @@
 							"}*/",
 							"// Retrieve the JSON string from the CSV file",
 							"",
-							"const jsonString = pm.iterationData.get('jsonDataString');",
-							"console.log(\"Json String\", jsonString);",
+							"const jsonString = JSON.stringify(pm.iterationData.get(jsonDataString));",
 							"",
-							"let requestsData = {};",
-							"try {",
-							"    // Parse the JSON string into a JavaScript object",
-							"    requestsData = JSON.parse(jsonString);",
-							"} catch (e) {",
-							"    console.error('Failed to parse JSON data:', e);",
-							"    requestsData = null; // Set to null if parsing fails",
-							"}",
-							"",
-							"// Set the parsed JSON object to a Postman variable",
-							"//pm.variables.set('requestsData', requestsDataObject);",
-							"",
-							"//const requestsData = pm.variables.get('requestsData');",
+							"  pm.variables.set('requestsData', jsonString.toObject());",
 							"",
 							"if (typeof requestsData !== 'object' || Object.keys(requestsData).length === 0) {",
 							"     console.log('Before');",
@@ -1187,7 +1174,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "324dfb97-0728-4d59-9f0e-3e81f79022e0",
+						"id": "e3aeb3d6-dfee-4022-8aab-25b97656d09b",
 						"type": "text/javascript",
 						"packages": {},
 						"exec": [
