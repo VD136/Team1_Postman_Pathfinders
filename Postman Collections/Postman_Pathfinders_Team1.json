@@ -1126,24 +1126,14 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "79233b30-eda0-4353-bdd9-c451c3bef0fc",
+						"id": "c2a9cc94-37de-4242-92ae-dcb2d34d69fe",
 						"type": "text/javascript",
 						"packages": {},
 						"exec": [
-							"// Retrieve the JSON string from the CSV file",
-							"const jsonString = pm.variables.get('jsondata');",
-							"",
-							"let requestsDataObj = JSON.parse(jsonString);",
-							"",
-							"let newrequestBodyObj = pm.variables.get('jsonFileData');",
-							"pm.variables.set('requestsData', JSON.stringify(requestsDataObj))",
 							"",
 							"// Load data from file",
 							"if (typeof pm.variables.get('requestsData') !== 'object') {",
-							"    console.log(\"inside\")",
-							"    pm.variables.set('requestsData', requestsDataObj);",
-							"",
-							"    //pm.variables.set('requestsData', pm.iterationData.toObject());",
+							"     pm.variables.set('requestsData', pm.iterationData.toObject());",
 							"}",
 							"const requestsData = pm.variables.get('requestsData') || {};",
 							"",
@@ -1180,7 +1170,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "a9c1d31b-32ef-4525-91af-e01eb660c8c4",
+						"id": "f7db23d2-5dda-47cd-aa3f-85ad6264d949",
 						"type": "text/javascript",
 						"packages": {},
 						"exec": [
