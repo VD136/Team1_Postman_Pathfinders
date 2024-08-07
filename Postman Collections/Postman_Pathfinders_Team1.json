@@ -1126,14 +1126,16 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "2740c72d-ca3c-4555-bf1b-e8885e524704",
+						"id": "49d1956a-13ef-4a76-8d5c-033eb95809b3",
 						"type": "text/javascript",
 						"packages": {},
 						"exec": [
 							"// Retrieve the JSON string from the CSV file",
-							"const jsonString = pm.iterationData.get('jsondata');",
+							"const jsonString = pm.variables.get('jsondata');",
 							"",
 							" let requestsDataObj = JSON.parse(jsonString);",
+							"",
+							" ",
 							"",
 							"// Load data from file",
 							"if (typeof pm.variables.get('requestsData') !== 'object') {",
@@ -1142,7 +1144,7 @@
 							"",
 							"    //pm.variables.set('requestsData', pm.iterationData.toObject());",
 							"}",
-							"const requestsData = pm.variables.get('requestsData');",
+							"const requestsData = pm.variables.get('requestsData') || {};",
 							"",
 							"if (typeof requestsData !== 'object' || Object.keys(requestsData).length === 0) {",
 							"    console.log('No external data provided or object is empty.');",
@@ -1177,7 +1179,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "64dd0568-f58b-4fa3-babe-3409183dcf08",
+						"id": "3279b4ea-0c04-49c6-9627-c21f47754212",
 						"type": "text/javascript",
 						"packages": {},
 						"exec": [
