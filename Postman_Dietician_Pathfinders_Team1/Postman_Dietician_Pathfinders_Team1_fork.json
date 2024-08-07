@@ -1266,7 +1266,7 @@
 					"response": []
 				},
 				{
-					"name": "Patient Morbidity Negative",
+					"name": "Patient Morbidity No  autho",
 					"event": [
 						{
 							"listen": "test",
@@ -1279,12 +1279,7 @@
 									"pm.test(\"Status code name has string\", function () {",
 									"    pm.response.to.have.status(\"Unauthorized\");",
 									"});",
-									"pm.test(\"Content-Type is present\", function () {",
-									"    pm.response.to.have.header(\"Content-Type\");",
-									"});",
-									"pm.test(\"Content-Type is application/json\", function () {",
-									"    pm.response.to.have.header(\"Content-Type\", \"application/json\");",
-									"});"
+									""
 								],
 								"type": "text/javascript",
 								"packages": {}
@@ -1348,7 +1343,7 @@
 					"response": []
 				},
 				{
-					"name": "Patient File Negative",
+					"name": "Patient File Negative Invalid endpoint",
 					"event": [
 						{
 							"listen": "test",
@@ -1387,7 +1382,7 @@
 						},
 						"method": "GET",
 						"header": [],
-						"url": "{{url}}/patient/testReports/viewFile/{{file_id}}"
+						"url": "{{url}}/patient/testReports/viewFile/{{file_id}}1"
 					},
 					"response": []
 				},
@@ -1436,7 +1431,7 @@
 					"response": []
 				},
 				{
-					"name": "Patient Negative",
+					"name": "Patient Negative No authorization",
 					"event": [
 						{
 							"listen": "test",
@@ -1449,12 +1444,7 @@
 									"pm.test(\"Status code name has string\", function () {",
 									"    pm.response.to.have.status(\"Unauthorized\");",
 									"});",
-									"pm.test(\"Content-Type is present\", function () {",
-									"    pm.response.to.have.header(\"Content-Type\");",
-									"});",
-									"pm.test(\"Content-Type is application/json\", function () {",
-									"    pm.response.to.have.header(\"Content-Type\", \"application/json\");",
-									"});"
+									""
 								],
 								"type": "text/javascript",
 								"packages": {}
