@@ -1126,7 +1126,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "199ac941-83b1-4546-bf1f-8fc04ac1255c",
+						"id": "027da1d1-ad22-48d1-9961-6f42e7f1f5d4",
 						"type": "text/javascript",
 						"packages": {},
 						"exec": [
@@ -1156,7 +1156,7 @@
 							"",
 							"let requestsData;",
 							"try {",
-							"    requestsData = JSON.parse(requestsDataString);",
+							"    requestsData = JSON.parse(requestsDataString)[0];",
 							"    console.log('requestsData:', requestsData); // Log the parsed object after retrieval",
 							"} catch (error) {",
 							"    console.error('Error parsing stored requestsData:', error);",
@@ -1203,7 +1203,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "e097adfd-b0c3-41be-b970-8c6c0be62889",
+						"id": "b1a99a38-9fa7-4cc4-b7c9-7504a795eb17",
 						"type": "text/javascript",
 						"packages": {},
 						"exec": [
