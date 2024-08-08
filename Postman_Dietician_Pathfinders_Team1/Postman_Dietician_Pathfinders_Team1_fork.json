@@ -1166,7 +1166,7 @@
 					"response": []
 				},
 				{
-					"name": "Patient Morbidity Negative Invalid endpoint",
+					"name": "Patient Morbidity Negative Invalid url",
 					"event": [
 						{
 							"listen": "test",
@@ -1251,7 +1251,7 @@
 					"response": []
 				},
 				{
-					"name": "Patient File Negative Invalid endpoint",
+					"name": "Patient File Negative Invalid url",
 					"event": [
 						{
 							"listen": "test",
@@ -1421,7 +1421,7 @@
 					"response": []
 				},
 				{
-					"name": "Patient Negative Neg Invalid endpoint",
+					"name": "Patient Negative Neg Invalid url",
 					"event": [
 						{
 							"listen": "test",
