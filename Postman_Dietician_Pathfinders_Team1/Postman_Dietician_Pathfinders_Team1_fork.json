@@ -1331,7 +1331,7 @@
 						},
 						"method": "GET",
 						"header": [],
-						"url": "{{url}}/patient/testReports/{{patient_id1}}l"
+						"url": "{{url}}/patient/testReports/invalid"
 					},
 					"response": []
 				},
@@ -1417,7 +1417,7 @@
 						},
 						"method": "GET",
 						"header": [],
-						"url": "{{url}}/patient/testReports/viewFile/{{file_id}}1"
+						"url": "{{url}}/patient/testReports/viewFile/invalidfileid"
 					},
 					"response": []
 				},
@@ -1534,7 +1534,7 @@
 						},
 						"method": "DELETE",
 						"header": [],
-						"url": "{{url}}/patient/{{patient_id1}}/"
+						"url": "{{url}}/patient/invalid"
 					},
 					"response": []
 				}
