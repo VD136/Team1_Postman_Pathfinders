@@ -1301,6 +1301,79 @@
 					"response": []
 				},
 				{
+					"name": "Patient Morbidity No header",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0ab82775-f2fb-4554-935d-02fcd2e07dda",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});",
+									"pm.test(\"Status code name has string\", function () {",
+									"    pm.response.to.have.status(\"Unauthorized\");",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "de776314-d187-40b9-9787-a7b79a1e9727",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": ""
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{url}}/patient/testReports/{{patient_id1}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Patient Morbidity Invalid endpoint",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0ab82775-f2fb-4554-935d-02fcd2e07dda",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});",
+									"pm.test(\"Status code name has string\", function () {",
+									"    pm.response.to.have.status(\"Unauthorized\");",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "c8efe73c-c0f2-481a-89b4-ea0e0a54f0ab",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{url}}/patient/testReports/{{patient_id1}}l"
+					},
+					"response": []
+				},
+				{
 					"name": "Patient File",
 					"event": [
 						{
