@@ -312,7 +312,7 @@
 					]
 				},
 				{
-					"name": "User Login Negative 2 invalid email",
+					"name": "User Login Negative invalid email",
 					"event": [
 						{
 							"listen": "test",
@@ -461,7 +461,7 @@
 					]
 				},
 				{
-					"name": "User Login Negative 3 no auth",
+					"name": "User Login Negative no auth",
 					"event": [
 						{
 							"listen": "test",
@@ -1128,6 +1128,13 @@
 									"pm.test(\"Status code name has string\", function () {",
 									"    pm.response.to.have.status(\"Unauthorized\");",
 									"});",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"pm.test(\"Content-Type is application/json\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json\");",
+									"});",
+									"",
 									""
 								],
 								"type": "text/javascript",
@@ -1161,7 +1168,7 @@
 									"    pm.response.to.have.status(404);",
 									"});",
 									"pm.test(\"Status code name has string\", function () {",
-									"    pm.response.to.have.status(\"\");",
+									"    pm.response.to.have.status(\"Not Found\");",
 									"});",
 									"pm.test(\"Content-Type is present\", function () {",
 									"    pm.response.to.have.header(\"Content-Type\");",
@@ -1247,7 +1254,7 @@
 									"    pm.response.to.have.status(404);",
 									"});",
 									"pm.test(\"Status code name has string\", function () {",
-									"    pm.response.to.have.status(\"Unauthorized\");",
+									"    pm.response.to.have.status(\"Not Found\");",
 									"});",
 									"pm.test(\"Content-Type is present\", function () {",
 									"    pm.response.to.have.header(\"Content-Type\");",
@@ -1332,7 +1339,7 @@
 									"    pm.response.to.have.status(404);",
 									"});",
 									"pm.test(\"Status code name has string\", function () {",
-									"    pm.response.to.have.status(\"\");",
+									"    pm.response.to.have.status(\"Not Found\");",
 									"});",
 									"pm.test(\"Content-Type is present\", function () {",
 									"    pm.response.to.have.header(\"Content-Type\");",
@@ -1456,11 +1463,11 @@
 							"script": {
 								"id": "0ab82775-f2fb-4554-935d-02fcd2e07dda",
 								"exec": [
-									"pm.test(\"Status code is 401\", function () {",
-									"    pm.response.to.have.status(401);",
+									"pm.test(\"Status code is 404\", function () {",
+									"    pm.response.to.have.status(404);",
 									"});",
 									"pm.test(\"Status code name has string\", function () {",
-									"    pm.response.to.have.status(\"Unauthorized\");",
+									"    pm.response.to.have.status(\"Not Found\");",
 									"});",
 									"pm.test(\"Content-Type is present\", function () {",
 									"    pm.response.to.have.header(\"Content-Type\");",
