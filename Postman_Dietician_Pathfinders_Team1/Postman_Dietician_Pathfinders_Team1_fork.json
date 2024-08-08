@@ -1201,7 +1201,7 @@
 						},
 						"method": "GET",
 						"header": [],
-						"url": "{{url}}/patient/testReports/invalid"
+						"url": "{{url}}/patient/testReportss/{{patient_id1}}"
 					},
 					"response": []
 				},
@@ -1290,7 +1290,7 @@
 						},
 						"method": "GET",
 						"header": [],
-						"url": "{{url}}/patient/testReports/viewFile/invalidfileid"
+						"url": "{{url}}/patient/testReports/viewFilee/{{file_id}}"
 					},
 					"response": []
 				},
@@ -1332,50 +1332,6 @@
 						"method": "GET",
 						"header": [],
 						"url": "{{url}}/patient/testReports/viewFile/{{file_id}}"
-					},
-					"response": []
-				},
-				{
-					"name": "Patient File Negative No Auth Invalid file id",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "0ab82775-f2fb-4554-935d-02fcd2e07dda",
-								"exec": [
-									"",
-									"pm.test(\"Status code is 404\", function () {",
-									"    pm.response.to.have.status(404);",
-									"});",
-									"pm.test(\"Status code name has string\", function () {",
-									"    pm.response.to.have.status(\"Not Found\");",
-									"});",
-									"pm.test(\"Content-Type is present\", function () {",
-									"    pm.response.to.have.header(\"Content-Type\");",
-									"});",
-									"pm.test(\"Content-Type is application/json\", function () {",
-									"    pm.response.to.have.header(\"Content-Type\", \"application/json\");",
-									"});"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"id": "dc98863b-e8b5-413a-81ca-09a004e1a688",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{patientToken}}"
-							}
-						},
-						"method": "GET",
-						"header": [],
-						"url": "{{url}}/patient/testReports/viewFile/{{invalid_file_id}}"
 					},
 					"response": []
 				},
@@ -1503,7 +1459,7 @@
 						},
 						"method": "DELETE",
 						"header": [],
-						"url": "{{url}}/patient/invalid"
+						"url": "{{url}}/patientt/{{patient_id1}}"
 					},
 					"response": []
 				}
