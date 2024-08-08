@@ -1505,7 +1505,7 @@
 						},
 						"method": "GET",
 						"header": [],
-						"url": "{{url}}/patient/testReports/viewFile/{{file_id}}"
+						"url": "{{url}}/patient/testReports/viewFile/{{invalid_file_id}}"
 					},
 					"response": []
 				},
@@ -1567,6 +1567,7 @@
 									"pm.test(\"Status code name has string\", function () {",
 									"    pm.response.to.have.status(\"Unauthorized\");",
 									"});",
+									"",
 									""
 								],
 								"type": "text/javascript",
@@ -1602,7 +1603,12 @@
 									"pm.test(\"Status code name has string\", function () {",
 									"    pm.response.to.have.status(\"Unauthorized\");",
 									"});",
-									""
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"pm.test(\"Content-Type is application/json\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json\");",
+									"});"
 								],
 								"type": "text/javascript",
 								"packages": {}
@@ -1623,6 +1629,49 @@
 						"method": "DELETE",
 						"header": [],
 						"url": "{{url}}/patient/invalid"
+					},
+					"response": []
+				},
+				{
+					"name": "Patient Negative Neg Invalid PatientId",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0ab82775-f2fb-4554-935d-02fcd2e07dda",
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});",
+									"pm.test(\"Status code name has string\", function () {",
+									"    pm.response.to.have.status(\"Not Found\");",
+									"});",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"pm.test(\"Content-Type is application/json\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "ff574c77-405c-418b-ab91-d4b476e96c97",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{BearerToken_First}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "{{url}}/patient/{{invalid_id}}"
 					},
 					"response": []
 				}
