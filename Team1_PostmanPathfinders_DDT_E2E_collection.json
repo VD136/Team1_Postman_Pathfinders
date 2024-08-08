@@ -1,0 +1,1315 @@
+{
+	"info": {
+		"_postman_id": "f546360b-f74a-40a5-a4a4-8c0b802c947f",
+		"name": "Team1_PostmanPathfinders_DDT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33070281"
+	},
+	"item": [
+		{
+			"name": "User and Dietician Login",
+			"item": [
+				{
+					"name": "UserLogin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"if (pm.response.code === 200) {\r",
+									"pm.test(\"set the authentication\", function () {\r",
+									"var jsonData = pm.response.json();\r",
+									"console.log(\"Response JSON:\", jsonData);\r",
+									" var bodytoken= jsonData.token;\r",
+									" if (bodytoken) {\r",
+									"pm.globals.set(\"BearerToken_First\", bodytoken);\r",
+									"console.log(\"Token set successfully:\", bodytoken);\r",
+									" } else {\r",
+									"        console.log(\"Token not found or null.\");\r",
+									"    }\r",
+									"});\r",
+									"}\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{RequestBody}}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Dietbaseurl}}/login",
+							"host": [
+								"{{Dietbaseurl}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Dietician",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 201) {   \r",
+									"    let currentUser = parseInt(pm.globals.get(\"current_user\"));\r",
+									" try {\r",
+									"        var jsonData = pm.response.json();\r",
+									"        var passwordDiet = jsonData.loginPassword;\r",
+									"        var DietEmail = jsonData.Email;\r",
+									"        var Dietician_ID = jsonData.id;\r",
+									"        console.log(jsonData.id);\r",
+									"\r",
+									"        if (currentUser === 1) {\r",
+									"            pm.globals.set(\"Dietician1_password\", passwordDiet);\r",
+									"            pm.globals.set(\"Dietician1_email\", DietEmail);\r",
+									"            pm.globals.set(\"DieticianID1\", Dietician_ID);\r",
+									"        } else if (currentUser === 2) {\r",
+									"            pm.globals.set(\"Dietician2_password\", passwordDiet);\r",
+									"            pm.globals.set(\"Dietician2_email\", DietEmail);\r",
+									"            pm.globals.set(\"DieticianID2\", Dietician_ID);\r",
+									"        }\r",
+									"\r",
+									"        // Increment the counter\r",
+									"        pm.globals.set(\"current_user\", currentUser + 1);\r",
+									"        pm.globals.set(\"NextRequest\", \"true\");\r",
+									"\r",
+									"\r",
+									"    } catch (error) {\r",
+									"        console.error(\"Error parsing response JSON:\", error.message);\r",
+									"    }\r",
+									"\r",
+									"} else if (pm.response.code === 400) {\r",
+									"    console.error(\"Bad request: dietician already exists\", pm.response.json());\r",
+									"    pm.globals.set(\"NextRequest\", \"false\");\r",
+									"\r",
+									"} else {\r",
+									"    pm.globals.set(\"NextRequest\", \"false\");\r",
+									"}\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const token = pm.globals.get(\"BearerToken_First\");\r",
+									"if (token) {\r",
+									"    pm.request.headers.add({\r",
+									"        key: \"Authorization\",\r",
+									"        value: `Bearer ${token}`\r",
+									"    });\r",
+									"} else {\r",
+									"    console.error(\"Bearer token not found in global variables.\");\r",
+									"}\r",
+									"if (!pm.globals.get(\"current_user\")) {\r",
+									"    pm.globals.set(\"current_user\", 1);\r",
+									"}\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{RequestBody}}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Dietbaseurl}}/dietician",
+							"host": [
+								"{{Dietbaseurl}}"
+							],
+							"path": [
+								"dietician"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Dietician_Id",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const dieticianId =pm.globals.get(\"DieticianID1\");\r",
+									"console.log(dieticianId);\r",
+									"pm.request.url  = pm.variables.replaceIn(\"{{Dietbaseurl}}\"+\"/dietician/\"+dieticianId);\r",
+									"console.log(pm.request.url);\r",
+									"const token = pm.globals.get(\"BearerToken_First\");\r",
+									"if (token) {\r",
+									"    pm.request.headers.add({\r",
+									"        key: \"Authorization\",\r",
+									"        value: `Bearer ${token}`\r",
+									"    });\r",
+									"} else {\r",
+									"    console.error(\"Bearer token not found in environment variables.\");\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{RequestBody}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Dietbaseurl}}/dietician/{dieticianId}",
+							"host": [
+								"{{Dietbaseurl}}"
+							],
+							"path": [
+								"dietician",
+								"{dieticianId}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ALL Dietician",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken_First}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Dietbaseurl}}/dietician",
+							"host": [
+								"{{Dietbaseurl}}"
+							],
+							"path": [
+								"dietician"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DietID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const dieticianId =pm.globals.get(\"DieticianID1\");\r",
+									"\r",
+									"pm.request.url  = pm.variables.replaceIn(\"{{Dietbaseurl}}\"+\"/dietician/\"+dieticianId);\r",
+									"\r",
+									"console.log(\"get diet_id url is :\",pm.request.url);\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken_First}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Dietbaseurl}}/dietician/{dieticianId}",
+							"host": [
+								"{{Dietbaseurl}}"
+							],
+							"path": [
+								"dietician",
+								"{dieticianId}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DieticianLogin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {\r",
+									"    pm.test(\"set the authentication\", function () {\r",
+									"        var jsonData = pm.response.json();\r",
+									"        console.log(\"Response Body:\", jsonData);\r",
+									"        if (jsonData) {\r",
+									"            var token = jsonData.token;\r",
+									"            console.log(\"Extracted Token:\", token);\r",
+									"            pm.globals.set(\"BearerToken_Dietician\", token);\r",
+									"        } else {\r",
+									"            console.log(\"No JSON data found in the response\");\r",
+									"        }\r",
+									"        if (!pm.globals.get(\"dietcian_Flag\")) {\r",
+									"    pm.globals.set(\"dietcian_Flag\", 1);\r",
+									"    console.log(\"dietician is already logged in\")\r",
+									"}     \r",
+									"    });\r",
+									"}\r",
+									"if (pm.response.code === 400) {\r",
+									"        console.error(\"Bad request: \", pm.response.json());\r",
+									"}\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const token = pm.globals.get(\"BearerToken_First\");\r",
+									"if (token) {\r",
+									"    pm.request.headers.add({\r",
+									"        key: \"Authorization\",\r",
+									"        value: `Bearer ${token}`\r",
+									"    });\r",
+									"} else {\r",
+									"    console.error(\"Bearer token not found in environment variables.\");\r",
+									"}\r",
+									"const Dietician2_password = pm.globals.get(\"Dietician2_password\");\r",
+									"const Dietician2_email =pm.globals.get(\"Dietician2_email\");\r",
+									"\r",
+									"\r",
+									"if (pm.globals.get(\"dietcian_Flag\")=== 1 && pm.globals.get(\"NextRequest\") === \"false\") {\r",
+									"   console.log(\"Skipping request due to dietcian_Flag being set to 1.\");\r",
+									"   pm.execution.skipRequest();\r",
+									"   \r",
+									"}else {\r",
+									"    console.log(\"Request will proceed\");\r",
+									"}\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken_First}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"password\": \"{{Dietician2_password}}\",\r\n  \"userLoginEmail\": \"{{Dietician2_email}}\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Dietbaseurl}}/login",
+							"host": [
+								"{{Dietbaseurl}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Patient",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"if(pm.response.code===201){\r",
+									"     let patientuser = parseInt(pm.globals.get(\"patientuser\"));\r",
+									"     console.log(\"in post script\",patientuser);\r",
+									" try{\r",
+									"  var jsonData = pm.response.json();\r",
+									" var patientID= jsonData.patientId;\r",
+									" var email = jsonData.Email;\r",
+									" console.log(\"jsondata\",jsonData);\r",
+									"  let filedId =Object.keys(jsonData.FileMorbidity).map(fileId => fileId );\r",
+									"          console.log(\"fileid\",filedId);\r",
+									"        \r",
+									"        if (patientuser === 1) {\r",
+									"            pm.globals.set(\"patientId\", patientID);\r",
+									"            pm.globals.set(\"email_Patient\", email);\r",
+									"              pm.globals.set(\"filedId\",filedId);\r",
+									"        } \r",
+									"        else if (patientuser === 2) {\r",
+									"            pm.globals.set(\"patientId_2\", patientID);\r",
+									"            pm.globals.set(\"email_Patient_2\", email);\r",
+									"              pm.globals.set(\"filedId2\",filedId);\r",
+									"        }\r",
+									"        // Increment the counter\r",
+									"        pm.globals.set(\"patientuser\", patientuser + 1);\r",
+									"        // fetch fileid\r",
+									"         var fileid = jsonData.FileMorbidity.fileId ;\r",
+									"          console.log(\"fileid\",fileid);\r",
+									"        \r",
+									" }catch (error) {\r",
+									"    console.error(\"Error parsing response JSON:\", error.message);\r",
+									" }\r",
+									"}\r",
+									"    if(pm.response.code=== 400){\r",
+									"    console.error(\"Bad request: patient already exists\", pm.response.json());\r",
+									"}\r",
+									"\r",
+									"\r",
+									"///\r",
+									"if (pm.response.code === 201) {   \r",
+									"    let currentUser = parseInt(pm.globals.get(\"current_user\"));\r",
+									" try {\r",
+									"        var jsonData = pm.response.json();\r",
+									"        var passwordDiet = jsonData.loginPassword;\r",
+									"        var DietEmail = jsonData.Email;\r",
+									"        var Dietician_ID = jsonData.id;\r",
+									"        console.log(jsonData.id);\r",
+									"\r",
+									"        if (currentUser === 1) {\r",
+									"            pm.globals.set(\"Dietician1_password\", passwordDiet);\r",
+									"            pm.globals.set(\"Dietician1_email\", DietEmail);\r",
+									"            pm.globals.set(\"Dietician1_ID\", Dietician_ID);\r",
+									"        } else if (currentUser === 2) {\r",
+									"            pm.globals.set(\"Dietician2_password\", passwordDiet);\r",
+									"            pm.globals.set(\"Dietician2_email\", DietEmail);\r",
+									"            pm.globals.set(\"Dietician2_ID\", Dietician_ID);\r",
+									"        }\r",
+									"\r",
+									"        // Increment the counter\r",
+									"        pm.globals.set(\"current_user\", currentUser + 1);\r",
+									"        pm.globals.set(\"NextRequest\", \"true\");\r",
+									"\r",
+									"\r",
+									"    } catch (error) {\r",
+									"        console.error(\"Error parsing response JSON:\", error.message);\r",
+									"    }\r",
+									"\r",
+									"} else if (pm.response.code === 400) {\r",
+									"    console.error(\"Bad request: dietician already exists\", pm.response.json());\r",
+									"    pm.globals.set(\"NextRequest\", \"false\");\r",
+									"\r",
+									"} else {\r",
+									"    pm.globals.set(\"NextRequest\", \"false\");\r",
+									"}\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const token = pm.globals.get(\"BearerToken_Dietician\");\r",
+									"if (token) {\r",
+									"    pm.request.headers.add({\r",
+									"        key: \"Authorization\",\r",
+									"        value: `Bearer ${token}`\r",
+									"    });\r",
+									"} else {\r",
+									"    console.error(\"Bearer token not found in global variables.\");\r",
+									"}\r",
+									"if (!pm.globals.get(\"patientuser\")) {\r",
+									"    pm.globals.set(\"patientuser\", 1);\r",
+									"   \r",
+									"}\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "patientInfo",
+									"value": "{{RequestBody}}",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "HypoThyrodism.pdf"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Dietbaseurl}}/patient",
+							"host": [
+								"{{Dietbaseurl}}"
+							],
+							"path": [
+								"patient"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update Patient",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const RequestType = pm.iterationData.get(\"RequestType\");\r",
+									"const Endpoint = pm.iterationData.get(\"Endpoint\");\r",
+									"const RequestBody = pm.iterationData.get(\"RequestBody\");\r",
+									"const actualpath =pm.request.url.getPath();\r",
+									"console.log(\"actualpath is :\",actualpath);\r",
+									"console.log(\"Endpoint is :\",Endpoint);\r",
+									"console.log(\"request method\",pm.request.method);\r",
+									"const patientID =pm.globals.get(\"patientId\");\r",
+									"\r",
+									"pm.request.url  = pm.variables.replaceIn(\"{{Dietbaseurl}}\"+\"/patient/\"+patientID);\r",
+									"\r",
+									"if(pm.request.method === RequestType && actualpath === Endpoint){\r",
+									"    try{\r",
+									"    const newrequestBody = JSON.parse(RequestBody);\r",
+									"    pm.request.body.update(newrequestBody);\r",
+									"    console.log(\"Request body updated:\",newrequestBody);\r",
+									" }catch (e) {\r",
+									"            console.error(\"Error parsing request body:\", e);\r",
+									"        } \r",
+									"} else {\r",
+									"     console.log(\"Skipping request. Method or path does not match.\");\r",
+									"     pm.execution.skipRequest();\r",
+									"}\r",
+									"const token = pm.globals.get(\"BearerToken_Dietician\");\r",
+									"if (token) {\r",
+									"    pm.request.headers.add({\r",
+									"        key: \"Authorization\",\r",
+									"        value: `Bearer ${token}`\r",
+									"    });\r",
+									"} else {\r",
+									"    console.error(\"Bearer token not found in global variables.\");\r",
+									"}\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken_Dietician}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "patientInfo",
+									"value": "{{RequestBody}}",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "Diabetes_Report.pdf"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Dietbaseurl}}/patient/{patientId}",
+							"host": [
+								"{{Dietbaseurl}}"
+							],
+							"path": [
+								"patient",
+								"{patientId}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update Patient reports",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const RequestType = pm.iterationData.get(\"RequestType\");\r",
+									"const Endpoint = pm.iterationData.get(\"Endpoint\");\r",
+									"const RequestBody = pm.iterationData.get(\"RequestBody\");\r",
+									"const Body = pm.iterationData.get(\"Body\");\r",
+									"const actualpath =pm.request.url.getPath();\r",
+									"console.log(\"actualpath is :\",actualpath);\r",
+									"console.log(\"Endpoint is :\",Endpoint);\r",
+									"console.log(\"request method\",pm.request.method);\r",
+									"const patientID =pm.globals.get(\"patientId\");\r",
+									"\r",
+									"pm.request.url  = pm.variables.replaceIn(\"{{Dietbaseurl}}\"+\"/patient/newReports/\"+patientID);\r",
+									"\r",
+									"if(pm.request.method === RequestType && actualpath === Endpoint){\r",
+									"    try{\r",
+									"    const newrequestBody = JSON.parse(RequestBody);\r",
+									"    pm.request.body.update(newrequestBody);\r",
+									"    const Body = JSON.parse(Body);\r",
+									"    pm.request.body.update(Body);\r",
+									"    console.log(\"Request body updated:\",Body);\r",
+									" }catch (e) {\r",
+									"            console.error(\"Error parsing request body:\", e);\r",
+									"        } \r",
+									"} else {\r",
+									"     console.log(\"Skipping request. Method or path does not match.\");\r",
+									"     pm.execution.skipRequest();\r",
+									"}\r",
+									"const token = pm.globals.get(\"BearerToken_Dietician\");\r",
+									"if (token) {\r",
+									"    pm.request.headers.add({\r",
+									"        key: \"Authorization\",\r",
+									"        value: `Bearer ${token}`\r",
+									"    });\r",
+									"} else {\r",
+									"    console.error(\"Bearer token not found in global variables.\");\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "patientInfo",
+									"value": "{{RequestBody}}",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "HypoThyrodism.pdf"
+								},
+								{
+									"key": "vitals",
+									"value": "{{Body}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Dietbaseurl}}/patient/newReports/{patientId}",
+							"host": [
+								"{{Dietbaseurl}}"
+							],
+							"path": [
+								"patient",
+								"newReports",
+								"{patientId}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all Patients",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken_Dietician}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Dietbaseurl}}/patient",
+							"host": [
+								"{{Dietbaseurl}}"
+							],
+							"path": [
+								"patient"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PatientLogin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {\r",
+									"    pm.test(\"set the authentication\", function () {\r",
+									"        var jsonData = pm.response.json();\r",
+									"        console.log(\"Response Body:\", jsonData);\r",
+									"        if (jsonData) {\r",
+									"            var token = jsonData.token;\r",
+									"            console.log(\"Extracted Token:\", token);\r",
+									"            pm.globals.set(\"BearerToken_Patient\", token);\r",
+									"        } else {\r",
+									"            console.log(\"No JSON data found in the response\");\r",
+									"        }   \r",
+									"    });\r",
+									"}\r",
+									"if (pm.response.code === 400) {\r",
+									"        console.error(\"Bad request: \", pm.response.json());\r",
+									"}\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const token = pm.globals.get(\"BearerToken_First\");\r",
+									"if (token) {\r",
+									"    pm.request.headers.add({\r",
+									"        key: \"Authorization\",\r",
+									"        value: `Bearer ${token}`\r",
+									"    });\r",
+									"} else {\r",
+									"    console.error(\"Bearer token not found in environment variables.\");\r",
+									"}\r",
+									"\r",
+									"const RequestBody = pm.iterationData.get(\"RequestBody\");\r",
+									"const parsedBody  = JSON.parse(RequestBody);\r",
+									"const password = parsedBody.password;\r",
+									"pm.globals.set(\"password\",password);\r",
+									"const email_Patient = pm.globals.get(\"email_Patient_2\");\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"password\": \"{{password}}\",\r\n  \"userLoginEmail\": \"{{email_Patient_2}}\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Dietbaseurl}}/login",
+							"host": [
+								"{{Dietbaseurl}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PatientMorbityDetails_byID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									" const patientID =pm.globals.get(\"patientId_2\");\r",
+									"\r",
+									"pm.request.url  = pm.variables.replaceIn(\"{{Dietbaseurl}}\"+\"/patient/testReports/\"+patientID);\r",
+									" const token = pm.globals.get(\"BearerToken_Patient\");\r",
+									" \r",
+									"if (token) {\r",
+									"    pm.request.headers.add({\r",
+									"        key: \"Authorization\",\r",
+									"        value: `Bearer ${token}`\r",
+									"    });\r",
+									"} else {\r",
+									"    console.error(\"Bearer token not found in global variables.\")}\r",
+									"    ;\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken_Patient}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Dietbaseurl}}/patient/testReports/{patientId}",
+							"host": [
+								"{{Dietbaseurl}}"
+							],
+							"path": [
+								"patient",
+								"testReports",
+								"{patientId}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patient file by FileId",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const fileid =pm.globals.get(\"filedId2\");\r",
+									"pm.request.url = pm.variables.replaceIn(\"{{Dietbaseurl}}\"+\"/patient/testReports/viewFile/\"+fileid);\r",
+									"console.log(\"get patient by fileid url is :\",pm.request.url);\r",
+									"const token = pm.globals.get(\"BearerToken_Patient\");\r",
+									"if (token) {\r",
+									"    pm.request.headers.add({\r",
+									"        key: \"Authorization\",\r",
+									"        value: `Bearer ${token}`\r",
+									"    });\r",
+									"} else {\r",
+									"    console.error(\"Bearer token not found in global variables.\")}\r",
+									"    ;\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if(pm.response.code===200){\r",
+									"\r",
+									"\r",
+									"    pm.test(\"Content-Type is present\", function () {\r",
+									"        pm.response.to.have.header(\"Content-Type\");\r",
+									"    });\r",
+									"    pm.test(\"Content-Type header is application/json\", function() {\r",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.include('application/pdf');\r",
+									" });\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken_Patient}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Dietbaseurl}}/patient/testReports/viewFile/{fileId}",
+							"host": [
+								"{{Dietbaseurl}}"
+							],
+							"path": [
+								"patient",
+								"testReports",
+								"viewFile",
+								"{fileId}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ALLmorbidity",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken_First}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Dietbaseurl}}/morbidity",
+							"host": [
+								"{{Dietbaseurl}}"
+							],
+							"path": [
+								"morbidity"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Dietician",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const dieticianId =pm.globals.get(\"DieticianID1\");\r",
+									"\r",
+									"pm.request.url  = pm.variables.replaceIn(\"{{Dietbaseurl}}\"+\"/dietician/\"+dieticianId);\r",
+									"console.log(\"get diet_id url is :\",pm.request.url);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken_First}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{Dietbaseurl}}/dietician/{dieticianId}",
+							"host": [
+								"{{Dietbaseurl}}"
+							],
+							"path": [
+								"dietician",
+								"{dieticianId}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeletePatient",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const patientID =pm.globals.get(\"patientId\");\r",
+									"console.log(\"retrieved patientID\",patientID);\r",
+									"\r",
+									"pm.request.url  = pm.variables.replaceIn(\"{{Dietbaseurl}}\"+\"/patient/\"+patientID);\r",
+									"console.log(\"replaced url with patientID :\" ,pm.request.url  );"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken_Dietician}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{Dietbaseurl}}/patient/{patientId}",
+							"host": [
+								"{{Dietbaseurl}}"
+							],
+							"path": [
+								"patient",
+								"{patientId}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Morbidity",
+			"item": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"//Fetch data from CSV\r",
+					"const RequestType = pm.iterationData.get(\"RequestType\");\r",
+					"const Endpoint = pm.iterationData.get(\"Endpoint\");\r",
+					"const RequestBody = pm.iterationData.get(\"RequestBody\");\r",
+					"const RequestName= pm.iterationData.get(\"RequestName\");\r",
+					"\r",
+					"//Fetch current request method and path\r",
+					"const actualpath =pm.request.url.getPath();\r",
+					"const currentMethod= pm.request.method;\r",
+					"const currentName =pm.info.requestName;\r",
+					"\r",
+					"console.log(\"RequestType\",RequestType);\r",
+					"console.log(\"Endpoint\",Endpoint);\r",
+					"console.log(\"RequestName\",RequestName);\r",
+					"console.log(\"currentMethod\",currentMethod);\r",
+					"console.log(\"actualpath\",actualpath);\r",
+					"\r",
+					"console.log(\"currentName\",currentMethod);\r",
+					"\r",
+					"  if ( currentMethod === RequestType && actualpath === Endpoint && \r",
+					" currentName === RequestName ){\r",
+					"\r",
+					"    if (currentMethod === \"GET\"){\r",
+					"console.log(\"No request body for GET requests , so proceeding.\")\r",
+					"    }\r",
+					"     else if(currentMethod === \"DELETE\"){\r",
+					"console.log(\"No request body for DELETE requests , so proceeding.\")\r",
+					"    }\r",
+					" \r",
+					"   if(currentMethod === \"PUT\"){    \r",
+					"         console.log(\"PUT request needs more info.Proceeding the request\");\r",
+					"        }\r",
+					"    else if(currentMethod === \"POST\"){     \r",
+					"     const newrequestBody = JSON.parse(RequestBody);\r",
+					"    pm.request.body.update(newrequestBody);\r",
+					"    console.log(\"Proceeding the request\");\r",
+					" \r",
+					" }\r",
+					" }else {\r",
+					"     console.log(\"Skipping request. Method or path does not match.\");\r",
+					"     pm.execution.skipRequest();\r",
+					" }\r",
+					" "
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"const currentMethod= pm.request.method;\r",
+					"if(pm.response.code===200 && currentMethod !== \"DELETE\"){\r",
+					"\r",
+					"    pm.test(\"Status code is 200\", function () {\r",
+					"        pm.response.to.have.status(200);\r",
+					"     });\r",
+					"try{\r",
+					"   pm.test(\"Content-Type header is present\", function() {\r",
+					"    pm.response.to.have.header(\"Content-Type\");\r",
+					"    });\r",
+					"\r",
+					" }catch (error) {\r",
+					"    console.error(\"Error parsing response JSON:\", error.message);\r",
+					" }\r",
+					" \r",
+					"}\r",
+					"if(pm.response.code===200 && currentMethod === \"DELETE\"){\r",
+					"    pm.test(\"Status code is 200\", function () {\r",
+					"        pm.response.to.have.status(200);\r",
+					"     });\r",
+					"\r",
+					"     pm.test(\"Content-Type header is present\", function() {\r",
+					"    pm.response.to.have.header(\"Content-Type\");\r",
+					"    });\r",
+					"\r",
+					"    pm.test(\"Content-Type header is application/json\", function() {\r",
+					"    pm.expect(pm.response.headers.get('Content-Type')).to.include('text/plain;charset=UTF-8');\r",
+					" });\r",
+					"}\r",
+					"if (pm.response.code === 201) {\r",
+					"    pm.test(\"Status code is 201\", function () {\r",
+					"        pm.response.to.have.status(201);\r",
+					"        pm.response.to.have.status(\"Created\");\r",
+					"    });\r",
+					"}\r",
+					"  if(pm.response.code=== 404){\r",
+					"    pm.test(\"Response code is 404\", function () {\r",
+					"    console.error(\"Not found: \", pm.response.json());\r",
+					"   pm.response.to.have.status(404);\r",
+					" });\r",
+					"}\r",
+					"if(pm.response.code=== 400){\r",
+					"    pm.test(\"Response code is 400\", function () {\r",
+					"    console.error(\"Invalid data \", pm.response.json());\r",
+					"   pm.response.to.have.status(400);\r",
+					" });\r",
+					"}\r",
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "Dietbaseurl",
+			"value": "https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician",
+			"type": "string"
+		}
+	]
+}
