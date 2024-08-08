@@ -1369,7 +1369,10 @@
 					},
 					"request": {
 						"auth": {
-							"type": "noauth"
+							"type": "bearer",
+							"bearer": {
+								"token": "{{patientToken}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
@@ -1418,6 +1421,91 @@
 						"method": "GET",
 						"header": [],
 						"url": "{{url}}/patient/testReports/viewFile/invalidfileid"
+					},
+					"response": []
+				},
+				{
+					"name": "Patient File Negative No Auth",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0ab82775-f2fb-4554-935d-02fcd2e07dda",
+								"exec": [
+									"",
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});",
+									"pm.test(\"Status code name has string\", function () {",
+									"    pm.response.to.have.status(\"Unauthorized\");",
+									"});",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"pm.test(\"Content-Type is application/json\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "08c6f655-c9e1-48e2-a68c-aa0f04b9ed84",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{url}}/patient/testReports/viewFile/{{file_id}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Patient File Negative No Auth Invalid file id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0ab82775-f2fb-4554-935d-02fcd2e07dda",
+								"exec": [
+									"",
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});",
+									"pm.test(\"Status code name has string\", function () {",
+									"    pm.response.to.have.status(\"Unauthorized\");",
+									"});",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"pm.test(\"Content-Type is application/json\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "dc98863b-e8b5-413a-81ca-09a004e1a688",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{patientToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{url}}/patient/testReports/viewFile/{{file_id}}"
 					},
 					"response": []
 				},
