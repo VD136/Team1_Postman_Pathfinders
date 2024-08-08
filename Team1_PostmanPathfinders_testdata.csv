@@ -1,0 +1,250 @@
+RequestType,Endpoint,RequestBody,Body,RequestName
+POST,/login,"{""password"": ""test"", ""userLoginEmail"": ""Team1@gmail.com""}",,UserLogin
+POST,/dietician,"{  ""ContactNumber"": ""8989565623"",
+  ""DateOfBirth"": ""2023-05-22T18:14:08.570Z"",
+  ""Education"": ""MS"",
+  ""Email"": ""todayman@gmail.com"",
+  ""Firstname"": ""van"",
+  ""HospitalCity"": ""vancouver"",
+  ""HospitalName"": ""newman"",
+  ""HospitalPincode"": ""789451"",
+  ""HospitalStreet"": ""street"",
+  ""Lastname"": ""Hudson""
+}",,Create Dietician
+POST,/dietician,"{  ""ContactNumber"": ""7896557870"",
+  ""DateOfBirth"": ""2020-11-22T18:14:08.570Z"",
+  ""Education"": ""MS"",
+  ""Email"": ""tomoNIck@gmail.com"",
+  ""Firstname"": ""man"",
+  ""HospitalCity"": ""vancouver"",
+  ""HospitalName"": ""newman"",
+  ""HospitalPincode"": ""789451"",
+  ""HospitalStreet"": ""street"",
+  ""Lastname"": ""Hudson""
+}",,Create Dietician
+PUT,/dietician/{dieticianId},"{
+  ""ContactNumber"": ""5836680990"",
+  ""DateOfBirth"": ""2019-05-24T17:14:08.570Z"",
+  ""Education"": ""MS"",
+  ""Email"": ""daOOy@gmail.com"",
+  ""Firstname"": ""mine"",
+  ""HospitalCity"": ""chicago"",
+  ""HospitalName"": ""north"",
+  ""HospitalPincode"": ""500252"",
+  ""HospitalStreet"": ""blvd"",
+  ""Lastname"": ""ness""
+ 
+}",,Update Dietician_Id
+GET,/dietician,,,ALL Dietician
+GET,/dietician/{dieticianId},,,DietID
+POST,/login,"{
+  ""password"": ""string"",
+  ""userLoginEmail"": ""string""
+}",,DieticianLogin
+POST,/patient,"{ ""FirstName"": ""roiD"",
+""LastName"": ""maichaD"",
+""ContactNumber"": ""5557110520"",
+""Email"": ""romnoDD@gmail.com"",
+""Allergy"": ""almond"",
+""FoodPreference"": ""Vegan"",
+""CuisineCategory"":""Kerala"",
+""DateOfBirth"": ""2013-05-15""
+}",,Create Patient
+POST,/patient,"{ ""FirstName"": ""ham"",
+""LastName"": ""Jamhhe"",
+""ContactNumber"": ""4516671078"",
+""Email"": ""ham@gmail.com"",
+""Allergy"": ""almond"",
+""FoodPreference"": ""Vegan"",
+""CuisineCategory"":""Kerala"",
+""DateOfBirth"": ""2021-07-23""
+}",,Create Patient
+PUT,/patient/{patientId},"{ ""FirstName"": ""kol"",
+""LastName"": ""kongL"",
+""ContactNumber"": ""7035559801"",
+""Email"": ""kite@gmail.com"",
+""Allergy"": ""almond"",
+""FoodPreference"": ""Vegan"",
+""CuisineCategory"":""Kerala"",
+""DateOfBirth"": ""1989-12-14""
+}",,update Patient
+PUT,/patient/newReports/{patientId},"{  ""FirstName"": ""pest"",
+""LastName"": ""try"",
+""ContactNumber"": ""1099990699"",
+""Email"": ""johnson@gmail.com"",
+""Allergy"": ""almond"",
+""FoodPreference"": ""Vegan"",
+""CuisineCategory"":""Indian"",
+""DateOfBirth"": ""1967-03-29""
+}","{
+  ""Weight"": 55,
+  ""Height"": 5,
+  ""Temperature"": 88,
+  ""SP"": 120,
+  ""DP"": 80
+}",update Patient reports
+POST,/login,"{""password"": ""test"", ""userLoginEmail"": ""email""}",,PatientLogin
+GET,/patient/testReports/{patientId},,,PatientMorbityDetails_byID
+GET,/patient,,,Get all Patients
+GET,/patient/testReports/viewFile/{fileId},,,Patient file by FileId
+GET,/morbidity,,,ALLmorbidity
+DELETE,/dietician/{dieticianId},,,Delete Dietician
+DELETE,/patient/{patientId},,,DeletePatient
+GET,/morbidity,,,all_morbidities_admin
+GET,/morbidity*,,,all_morbidities_admin_invalidUrl
+GET,/morbidity,"{
+                        ""url"": ""valid""
+                    }",,all_morbidities_noToken_valid/invalidUrl
+GET,/morbidity,"{
+                        ""url"": ""invalid"",
+
+                        ""invalidUrl"": ""1""
+                    }",,all_morbidities_noToken_valid/invalidUrl
+GET,/morbidity/{{morbidityName}}," {
+                        ""morbidityName"": ""Fasting Glucose"",
+                        ""expectedValue"" :{
+                            ""mg/dL"": { ""min"": 100.0, ""max"": 125.0 } 
+                        }
+                    }",,morbidity_byTestname_admin
+GET,/morbidity/{{morbidityName}},"{
+                        ""morbidityName"": ""Average Glucose"",
+                        ""expectedValue"" :{
+                            ""mg/dL"": { ""min"": 121.0, ""max"": 150.0 }   
+                        }
+                       
+                    }",,morbidity_byTestname_admin
+GET,/morbidity/{{morbidityName}},"{
+                        ""morbidityName"": ""Plasma Glucose"",
+                        ""expectedValue"" :{
+                            ""mg/dL"": { ""min"": 140.0, ""max"": 199.0 }
+                        }
+                       
+                    }",,morbidity_byTestname_admin
+GET,/morbidity/{{morbidityName}},"{
+                        ""morbidityName"": ""HbA1c"",
+                        ""expectedValue"" :{
+                            ""%"": { ""min"": 5.7, ""max"": 6.5 }
+                        }
+                       
+                    }",,morbidity_byTestname_admin
+GET,/morbidity/{{morbidityName}},"{
+                        ""morbidityName"": ""TSH"",
+                        ""expectedValue"" :{
+                            ""μIU/ml"": { ""min"": 0.55, ""max"": 4.78 },
+                            ""uIU/ml"": { ""min"": 0.55, ""max"": 4.78 }                        }
+                       
+                    }",,morbidity_byTestname_admin
+GET,/morbidity/{{morbidityName}},"{
+                        ""morbidityName"": ""t3"",
+                        ""expectedValue"" :{
+                            ""ng/dL"": { ""min"": 60.0, ""max"": 180.0 },
+                            ""ng/mL"": { ""min"": 0.6, ""max"": 1.8 },
+                            ""pg/mL"": { ""min"": 1.5, ""max"": 4.1 },
+                            ""nmol/L"": { ""min"": 0.9, ""max"": 2.76 }
+                        }
+               
+                    }",,morbidity_byTestname_admin
+GET,/morbidity/{{morbidityName}},"{
+                        ""morbidityName"": ""t4"",
+                        ""expectedValue"" :{
+                            ""μg/dL"": { ""min"": 5.0, ""max"": 12.0 },
+                            ""ug/dL"": { ""min"": 5.0, ""max"": 12.0 },
+                            ""ng/dL"": { ""min"": 0.8, ""max"": 1.9 }
+                        }
+               
+                    }",,morbidity_byTestname_admin
+GET,/morbidity/{{morbidityName}},"{
+                        ""morbidityName"": ""Blood Pressure Levels"",
+                        ""expectedValue"" :{
+                            ""mm Hg"": { ""min"": 80.0, ""max"": 120.0 }
+               
+                         }
+                    }",,morbidity_byTestname_admin
+GET,/morbidity/{{morbidityName}},"{
+                        ""morbidityName"": ""gl""
+                    }",,morbidity_byTestname_incompleteTestname
+GET,/morbidity/{{morbidityName}},"{
+                        ""morbidityName"": ""diabetes""
+                    }",,morbidity_byTestname_admin_invalidTestname
+GET,/morbidity/{{morbidityName}},"{
+                        ""morbidityName"": ""*""
+                    }",,morbidity_byTestname_admin_invalidTestname
+GET,/morbidity,,,all_morbidities_dietician
+GET,/morbidit,,,all_morbidities_dietician_invalidUrl
+GET,/morbidity/t3,"{
+                        ""url"": ""valid""
+                    }",,morbidity_byTestname_noToken_valid/invalidUrl
+GET,/morbidity/t3,"{
+                        ""url"": ""invalid"",
+
+                        ""invalidUrl"": ""1""
+                    }",,morbidity_byTestname_noToken_valid/invalidUrl
+GET,/morbidity/{{morbidityName}}," {
+                        ""morbidityName"": ""Fasting Glucose"",
+                        ""expectedValue"" :{
+                            ""mg/dL"": { ""min"": 100.0, ""max"": 125.0 } 
+                        }
+                    }",,morbidity_byTestname_dietician
+GET,/morbidity/{{morbidityName}},"{
+                        ""morbidityName"": ""Average Glucose"",
+                        ""expectedValue"" :{
+                            ""mg/dL"": { ""min"": 121.0, ""max"": 150.0 }   
+                        }
+                       
+                    }",,morbidity_byTestname_dietician
+GET,/morbidity/{{morbidityName}},"{
+                        ""morbidityName"": ""Plasma Glucose"",
+                        ""expectedValue"" :{
+                            ""mg/dL"": { ""min"": 140.0, ""max"": 199.0 }
+                        }
+                       
+                    }",,morbidity_byTestname_dietician
+GET,/morbidity/{{morbidityName}},"{
+                        ""morbidityName"": ""HbA1c"",
+                        ""expectedValue"" :{
+                            ""%"": { ""min"": 5.7, ""max"": 6.5 }
+                        }
+                       
+                    }",,morbidity_byTestname_dietician
+GET,/morbidity/{{morbidityName}},"{
+                        ""morbidityName"": ""TSH"",
+                        ""expectedValue"" :{
+                            ""μIU/ml"": { ""min"": 0.55, ""max"": 4.78 },
+                            ""uIU/ml"": { ""min"": 0.55, ""max"": 4.78 }                        }
+                       
+                    }",,morbidity_byTestname_dietician
+GET,/morbidity/{{morbidityName}},"{
+                        ""morbidityName"": ""t3"",
+                        ""expectedValue"" :{
+                            ""ng/dL"": { ""min"": 60.0, ""max"": 180.0 },
+                            ""ng/mL"": { ""min"": 0.6, ""max"": 1.8 },
+                            ""pg/mL"": { ""min"": 1.5, ""max"": 4.1 },
+                            ""nmol/L"": { ""min"": 0.9, ""max"": 2.76 }
+                        }
+               
+                    }",,morbidity_byTestname_dietician
+GET,/morbidity/{{morbidityName}},"{
+                        ""morbidityName"": ""t4"",
+                        ""expectedValue"" :{
+                            ""μg/dL"": { ""min"": 5.0, ""max"": 12.0 },
+                            ""ug/dL"": { ""min"": 5.0, ""max"": 12.0 },
+                            ""ng/dL"": { ""min"": 0.8, ""max"": 1.9 }
+                        }
+               
+                    }",,morbidity_byTestname_dietician
+GET,/morbidity/{{morbidityName}},"{
+                        ""morbidityName"": ""Blood Pressure Levels"",
+                        ""expectedValue"" :{
+                            ""mm Hg"": { ""min"": 80.0, ""max"": 120.0 }
+               
+                         }
+                    }",,morbidity_byTestname_dietician
+GET,/morbidity/{{morbidityName}},"{
+                        ""morbidityName"": ""diabetes""
+                    }",,morbidity_byTestname_dietician_invalidTestname
+GET,/morbidity/{{morbidityName}},"{
+                        ""morbidityName"": ""123""
+                    }",,morbidity_byTestname_dietician_invalidTestname
+DELETE,/patient/{patientId},,,DeletePatient2
+DELETE,/dietician/{dieticianId},,,Delete Dietician2
+GET,/logoutdietician,,,Logout
