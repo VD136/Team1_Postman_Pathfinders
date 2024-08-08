@@ -197,7 +197,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\"password\": \"test123\",\n\"userLoginEmail\": \"Team1@gmail.com\"\n}",
+							"raw": "{\n\"password\": \"{{invalid_Password}}\",\n\"userLoginEmail\": \"{{invalid_email}}\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -346,7 +346,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\"password\": \"test\",\n\"userLoginEmail\": \"Team1@@gmail.com\"\n}",
+							"raw": "{\n\"password\": \"{{invalid_password}}\",\n\"userLoginEmail\": \"{{invalid_email}}\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1266,7 +1266,7 @@
 					"response": []
 				},
 				{
-					"name": "Patient Morbidity No  autho",
+					"name": "Patient Morbidity Negative No  Autho",
 					"event": [
 						{
 							"listen": "test",
@@ -1301,7 +1301,7 @@
 					"response": []
 				},
 				{
-					"name": "Patient Morbidity Invalid endpoint",
+					"name": "Patient Morbidity Negative Invalid endpoint",
 					"event": [
 						{
 							"listen": "test",
